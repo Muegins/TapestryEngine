@@ -1,0 +1,100 @@
+{
+	"loading":
+	{
+		"splash" : "Loading.bmp"
+	},
+	
+	"level": 
+	{
+		"world": 
+		{
+			"world_h": 250,
+			"world_w": 1000,
+			"terrain" : "scenecolmap.bmp",
+			"backgrounds" : 
+			[
+			{"back" : "desert_hills_expand.bmp", "parallax_factor" : 2, "alpha" : 0}
+			],
+			"foregrounds" : 
+			[
+			{"fore" : "scene_fore.bmp", "alpha" : 0}
+			],
+			"overlays" : 
+			[
+			{"over" : "scene_waterOverlay.bmp", "parallax_factor" : 1, "alpha" : 175}
+			]
+		},
+
+		"camera": 
+		{
+			"h": 225,
+			"w": 450,
+			"x": 0,
+			"y": 0
+		},
+
+		"sounds":
+		[
+		{"filename" : "Dhaka.mp3"       , "name" : "dhaka"       },
+		{"filename" : "splash_sound.wav", "name" : "splash_sound"},
+		{"filename" : "footstep.wav"    , "name" : "footstep"    }
+		],
+
+		"animations" : 
+		[
+			{
+				"pack_name" : "splash", 
+				"anim_set":
+				[
+				{"filename" : "splash.bmp", "frame_count" : 5 , "frame_rate" : 25 , "h" : 26, "w" : 72, "id" : "SPLASH" }
+				]
+			},
+			{
+				"pack_name" : "player_pack", 
+				"anim_set":
+				[
+				{"filename" : "player_idle_begin.bmp", "frame_count" : 4 , "frame_rate" : 75 , "h" : 23, "w" : 14, "id" : "IDLE_BEGIN", "transition" : 1 },
+				{"filename" : "player_idle.bmp"      , "frame_count" : 3 , "frame_rate" : 100, "h" : 23, "w" : 14, "id" : "IDLE"      , "transition" : 0 },
+				{"filename" : "player_run.bmp"       , "frame_count" : 15, "frame_rate" : 20 , "h" : 23, "w" : 14, "id" : "RUN"       , "transition" : 0 }
+				]
+			},
+			{
+				"pack_name" : "red_pack", 
+				"anim_set":
+				[
+				{"filename" : "red_idle_begin.bmp", "frame_count" : 4 , "frame_rate" : 75 , "h" : 23, "w" : 14, "id" : "IDLE_BEGIN", "transition" : 1 },
+				{"filename" : "red_idle.bmp"      , "frame_count" : 3 , "frame_rate" : 100, "h" : 23, "w" : 14, "id" : "IDLE"      , "transition" : 0 },
+				{"filename" : "red_run.bmp"       , "frame_count" : 15, "frame_rate" : 20 , "h" : 23, "w" : 14, "id" : "RUN"       , "transition" : 0 }
+				]
+			},
+			{
+				"pack_name" : "yella_pack", 
+				"anim_set":
+				[
+				{"filename" : "yella_idle_begin.bmp", "frame_count" : 4 , "frame_rate" : 75 , "h" : 23, "w" : 14, "id" : "IDLE_BEGIN", "transition" : 1 },
+				{"filename" : "yella_idle.bmp"      , "frame_count" : 3 , "frame_rate" : 100, "h" : 23, "w" : 14, "id" : "IDLE"      , "transition" : 0 },
+				{"filename" : "yella_run.bmp"       , "frame_count" : 15, "frame_rate" : 20 , "h" : 23, "w" : 14, "id" : "RUN"       , "transition" : 0 }
+				]
+			}
+		],
+
+		"actors" : 
+		[
+		{"type" : "pursuer" , "anim_pack" : "red_pack"   , "x" : 180, "y" : 140, "h":23, "w":14},
+		{"type" : "wanderer", "anim_pack" : "yella_pack" , "x" : 300, "y" : 140, "h":23, "w":14},
+		{"type" : "player"  , "anim_pack" : "player_pack", "x" :   0, "y" :   0, "h":23, "w":14}
+		],
+
+		"hud_textures" : 
+		{
+		"life_base" : "life_base.bmp",
+		"life_bar"  : "life_bar.bmp"
+		},
+
+		"Particles" : 
+		[
+		{"anim_pack" : "splash", "h":3, "w":9}
+		]
+			
+	}
+}

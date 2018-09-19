@@ -1,0 +1,18 @@
+﻿  Actor.cpp
+  ActorCollision.cpp
+  Animation.cpp
+  Camera.cpp
+  Console.cpp
+  DiagnosticDraw.cpp
+  Event.cpp
+  Input.cpp
+  Level.cpp
+  Main.cpp
+  MiscDraw.cpp
+  Physics.cpp
+  Terrain.cpp
+  Utils.cpp
+  symbol.cpp
+SDL2main.lib(SDL_windows_main.obj) : error LNK2001: unresolved external symbol __imp__fprintf
+SDL2main.lib(SDL_windows_main.obj) : error LNK2001: unresolved external symbol __imp____iob_func
+C:\Users\baptistac1\Documents\Visual Studio 2015\Projects\TapestryEngineDev\Release\TapestryEngine.exe : fatal error LNK1120: 2 unresolved externals

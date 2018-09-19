@@ -1,0 +1,33 @@
+﻿  Utils.cpp
+  Terrain.cpp
+  symbol.cpp
+  sound.cpp
+  Sequence.cpp
+  Physics.cpp
+  Particle.cpp
+  MiscDraw.cpp
+  Main.cpp
+  Loading.cpp
+  Level.cpp
+  Layer.cpp
+  Input.cpp
+  HUD.cpp
+  Event.cpp
+  Emitter.cpp
+  Dialogue.cpp
+  DiagnosticDraw.cpp
+  Context.cpp
+  Console.cpp
+  Generating Code...
+  Compiling...
+  cJSON.cpp
+  Camera.cpp
+  BinaryTree.cpp
+  AnimationGraph.cpp
+  Animation.cpp
+  ActorHandle.cpp
+  ActorCollision.cpp
+  Actor.cpp
+  Generating Code...
+  TapestryEngine.vcxproj -> C:\Users\baptistac1\Documents\Visual Studio 2015\Projects\TapestryEngineDev\Debug\TapestryEngine.exe
+  TapestryEngine.vcxproj -> C:\Users\baptistac1\Documents\Visual Studio 2015\Projects\TapestryEngineDev\Debug\TapestryEngine.pdb (Full PDB)

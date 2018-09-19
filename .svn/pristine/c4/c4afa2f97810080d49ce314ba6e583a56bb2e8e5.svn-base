@@ -1,0 +1,71 @@
+#ifndef BINARY_TREE_H
+#define BINARY_TREE_H
+
+#define NULL 0
+
+class Node
+{
+public:
+
+	Node() : mParent(NULL), mLeft(NULL), mRight(NULL), mActive(false)
+	{}
+
+	Node(Node* parent) : mParent(parent), mLeft(NULL), mRight(NULL), mActive(false)
+	{}
+
+	Node(int item, void* data) : mParent(NULL), mActive(false) //Used to create root node
+	{
+		PopulateNode(item, data);
+	}
+
+	bool Insert(int i, void* data);
+	
+	Node* Search(int i);
+
+	bool InsertNode(Node* n);
+
+	bool InsertNodeAtRoot(Node* n);
+
+	void Delete();
+
+	bool DisableTree();
+
+	bool IsActive()
+	{
+		return mActive;
+	}
+
+	int GetItem()
+	{
+		return mItem;
+	}
+
+	void* GetData()
+	{
+		return mData;
+	}
+
+	Node* mParent;
+	Node* mLeft;
+	Node* mRight;
+
+protected:
+
+	void PopulateNode(int item, void* data); //Should only be called by inactive nodes
+
+	int mItem;
+
+	void* mData;
+
+	bool mActive;
+};
+
+
+class BinaryTree
+{
+public:
+protected:
+
+	Node mRoot;
+};
+#endif

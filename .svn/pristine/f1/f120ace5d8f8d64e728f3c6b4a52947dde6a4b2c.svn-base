@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>animation.h</FILENAME>
+      <LINE>92</LINE>
+      <COLUMN>20</COLUMN>
+    </SFA>
+    <DEFECTCODE>6282</DEFECTCODE>
+    <DESCRIPTION>Incorrect operator:  assignment of constant in Boolean context. Consider using '==' instead.</DESCRIPTION>
+    <FUNCTION>animation::Play</FUNCTION>
+    <DECORATED>?Play@animation@@QAE_NH@Z</DECORATED>
+    <FUNCLINE>89</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>animation.h</FILENAME>
+      <LINE>98</LINE>
+      <COLUMN>20</COLUMN>
+    </SFA>
+    <DEFECTCODE>6282</DEFECTCODE>
+    <DESCRIPTION>Incorrect operator:  assignment of constant in Boolean context. Consider using '==' instead.</DESCRIPTION>
+    <FUNCTION>animation::Stop</FUNCTION>
+    <DECORATED>?Stop@animation@@QAE_NXZ</DECORATED>
+    <FUNCLINE>95</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>animationgraph.cpp</FILENAME>
+      <LINE>35</LINE>
+      <COLUMN>23</COLUMN>
+    </SFA>
+    <DEFECTCODE>6386</DEFECTCODE>
+    <DESCRIPTION>Buffer overrun while writing to 'mTransitionMatrix':  the writable size is 'mLoopsAnimIDs.public: unsigned int __thiscall std::vector&lt;int,class std::allocator&lt;int&gt; &gt;::size(void)const ()*4' bytes, but '8' bytes might be written.</DESCRIPTION>
+    <FUNCTION>AnimGraphData::CreateTranisitionMatrix</FUNCTION>
+    <DECORATED>?CreateTranisitionMatrix@AnimGraphData@@QAE_NXZ</DECORATED>
+    <FUNCLINE>29</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>31</LINE>
+        <COLUMN>19</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>33</LINE>
+        <COLUMN>10</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>33</LINE>
+        <COLUMN>19</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Enter this loop, (assume 'i&lt;(int)mLoopsAnimIDs.size()')</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>35</LINE>
+        <COLUMN>23</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>36</LINE>
+        <COLUMN>11</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>36</LINE>
+        <COLUMN>20</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>33</LINE>
+        <COLUMN>49</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'i' may equal 1</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>33</LINE>
+        <COLUMN>19</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Continue this loop, (assume 'i&lt;(int)mLoopsAnimIDs.size()')</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>35</LINE>
+        <COLUMN>23</COLUMN>
+        <KEYEVENT>
+          <ID>4</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>Invalid write to 'mTransitionMatrix[1]', (writable range is 0 to 0)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>animationgraph.cpp</FILENAME>
+      <LINE>38</LINE>
+      <COLUMN>27</COLUMN>
+    </SFA>
+    <DEFECTCODE>6386</DEFECTCODE>
+    <DESCRIPTION>Buffer overrun while writing to 'mTransitionMatrix[i]':  the writable size is 'mLoopsAnimIDs.public: unsigned int __thiscall std::vector&lt;int,class std::allocator&lt;int&gt; &gt;::size(void)const ()*4' bytes, but '8' bytes might be written.</DESCRIPTION>
+    <FUNCTION>AnimGraphData::CreateTranisitionMatrix</FUNCTION>
+    <DECORATED>?CreateTranisitionMatrix@AnimGraphData@@QAE_NXZ</DECORATED>
+    <FUNCLINE>29</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>31</LINE>
+        <COLUMN>19</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>33</LINE>
+        <COLUMN>10</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'i' is NULL</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>33</LINE>
+        <COLUMN>19</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Enter this loop, (assume 'i&lt;(int)mLoopsAnimIDs.size()')</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>35</LINE>
+        <COLUMN>23</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>36</LINE>
+        <COLUMN>11</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>36</LINE>
+        <COLUMN>20</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Enter this loop, (assume 'j&lt;(int)mLoopsAnimIDs.size()')</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>38</LINE>
+        <COLUMN>27</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>36</LINE>
+        <COLUMN>50</COLUMN>
+        <KEYEVENT>
+          <ID>4</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'j' may equal 1</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>36</LINE>
+        <COLUMN>20</COLUMN>
+        <KEYEVENT>
+          <ID>5</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Continue this loop, (assume 'j&lt;(int)mLoopsAnimIDs.size()')</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>38</LINE>
+        <COLUMN>27</COLUMN>
+        <KEYEVENT>
+          <ID>6</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>Invalid write to 'mTransitionMatrix[i][1]', (writable range is 0 to 0)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT>
+</DEFECTS>

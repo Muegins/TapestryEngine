@@ -1,0 +1,58 @@
+#ifndef ACTORHANDLE_H
+#define ACTORHANDLE_H
+
+#include "Console.h"
+#include "Event.h"
+#include "Utils.h"
+
+struct HandleBind
+{
+	int mHandle;
+	EventReceiver* mAct;
+};
+
+class ActorHandleManager : public EventReceiver
+{
+public:
+
+	ActorHandleManager() : mNextID(0)
+	{
+		mHandleTree = new Node();
+		//mHandleTree = &Node(mNextID);
+	}
+
+	int AssignHandle(EventReceiver* act)
+	{
+		//HandleBind hb = { mNextID, act };
+		//mHandles.push_back(hb); //record the handle and Actor/EventReceiverPointer
+
+		//Node* Bind = new Node(mNextID, act);
+
+		mHandleTree->Insert(mNextID, act);
+
+		mNextID++;
+
+		return mNextID-1;
+		//return hb.mHandle;
+	}
+
+	EventReceiver* GetActorAddress(int handle)
+	{
+		return (EventReceiver*)(mHandleTree->Search(handle))->GetData();
+		//return mHandles.at(mNextID).mAct;
+	}
+
+	bool EventProcess(Event eve)
+	{
+		return false;
+	}
+
+protected:
+
+	int mNextID;
+	//std::vector<HandleBind> mHandles;
+	Node* mHandleTree;
+
+};
+
+#endif 

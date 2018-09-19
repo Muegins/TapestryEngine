@@ -1,0 +1,133 @@
+#include "HUD.h"
+
+SDL_Rect CalcElementScreenPosition(Widget* wid, SDL_Rect elementRect)
+{
+	elementRect.x += wid->GetPos()->x;
+	elementRect.y += wid->GetPos()->y;
+
+	return elementRect;
+};
+
+bool HUD::LogWidget(Widget* wid)
+{
+	assert(mIndex < 10);
+	mWidgets[mIndex] = wid;
+	mIndex += 1;
+	return true;
+}
+
+bool HUD::UpdateWidgets()
+{
+	for (int i = 0; i < mIndex; i++)
+	{
+		mWidgets[i]->WidgetUpdate();
+	}
+	return true;
+}
+
+bool HUD::DrawWidgets()
+{
+	for (int i = 0; i < mIndex; i++)
+	{
+		mWidgets[i]->WidgetDraw();
+	}
+	return true;
+}
+
+LifeMeter::LifeMeter(Player* target, SDL_Rect pos, SDL_Renderer* ren, char* life_base, char* life_bar) : Widget(ren, pos)
+{
+	mHPmax = target->GetMaxHP();
+	mHP = target->GetHP();
+	
+	mBase.img    = SDL_CreateTextureFromSurface(mren, LoadSurfaceBMP(life_base));
+	mLifebar.img = SDL_CreateTextureFromSurface(mren, LoadSurfaceBMP(life_bar ));
+
+	mBase.pos      = mPos;
+	mLifebar.pos.x = 0;
+	mLifebar.pos.y = 0;
+	mLifebar.pos.h = mPos.h;
+	mLifebar.pos.w = mPos.w;
+}
+
+bool LifeMeter::WidgetUpdate()
+{
+	mLifebar.pos.w = (int)( (mBase.pos.w)*(( (float)(*mHP) ) / ( (float)(*mHPmax)) ) );
+	return true;
+}
+
+bool LifeMeter::WidgetDraw()
+{
+	SDL_RenderCopy(mren, mBase.img, NULL, &mBase.pos);
+	SDL_RenderCopy(mren, mLifebar.img, NULL, &CalcElementScreenPosition(this, mLifebar.pos) );
+	return true;
+}
+//
+
+//Fader
+Fader::Fader(SDL_Renderer* ren, char* black) : Widget(ren, { 0,0,0,0 })
+{
+	mDisplay = false;
+
+	mBlack.img = SDL_CreateTextureFromSurface(mren, LoadSurfaceBMP(black));
+	mBlack.pos = mPos;
+}
+
+void Fader::PlayFade(int duration)
+{
+	mDisplay = true;
+	mOpacity = 0;
+
+	mTimer = gTime->GetCurrentCycle();
+	mFadeTime = duration / 2;
+}
+
+bool Fader::WidgetUpdate()
+{
+	if (mDisplay == true)
+	{
+		if (gTime->GetCurrentCycle() - mTimer <= mFadeTime) //if the timer is less than the fade-in/out time 
+		{
+			mOpacity = (int)( ((float)(gTime->GetCurrentCycle() - mTimer) / (float)mFadeTime) * 255.0 );
+		}
+		else if (gTime->GetCurrentCycle() - mTimer <= 2 * mFadeTime) //if the time is not less then the fade time, but is less than the total time
+		{
+			mOpacity = (int)( ((float)mFadeTime / (float)(gTime->GetCurrentCycle() - mTimer)) * 255.0 );
+		}
+		else //if the timer is over the fade time
+		{
+			mDisplay = false;
+		}
+	}
+	
+	return true;
+}
+
+bool Fader::WidgetDraw()
+{
+	if (mDisplay == true)
+	{
+		SDL_RenderCopy(mren, mBlack.img, NULL, NULL);
+		SDL_SetTextureAlphaMod(mBlack.img, mOpacity);
+	}
+	return true;
+}
+
+bool Fader::EventProcess(Event eve)
+{
+	switch (*eve.GetEventType())
+	{
+	case FADE:
+		PlayFade(eve.GetEventData()->i);
+		break;
+	case TERMINATE_DIALOGUE:
+	case SCROLL:
+	case DIALOGUE:
+		break;
+	default:
+		gCons->ConsPrintf("Fader received unrecognized event\n");
+		return false;
+		break;
+	}
+	return true;
+}
+//

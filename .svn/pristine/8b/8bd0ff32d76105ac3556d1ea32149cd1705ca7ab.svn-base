@@ -1,0 +1,2118 @@
+﻿<?xml version="1.0" encoding="utf-8"?><DEFECTS><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>animation.h</FILENAME>
+      <LINE>92</LINE>
+      <COLUMN>20</COLUMN>
+    </SFA>
+    <DEFECTCODE>6282</DEFECTCODE>
+    <DESCRIPTION>Incorrect operator:  assignment of constant in Boolean context. Consider using '==' instead.</DESCRIPTION>
+    <FUNCTION>animation::Play</FUNCTION>
+    <DECORATED>?Play@animation@@QAE_NH@Z</DECORATED>
+    <FUNCLINE>89</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>animation.h</FILENAME>
+      <LINE>98</LINE>
+      <COLUMN>20</COLUMN>
+    </SFA>
+    <DEFECTCODE>6282</DEFECTCODE>
+    <DESCRIPTION>Incorrect operator:  assignment of constant in Boolean context. Consider using '==' instead.</DESCRIPTION>
+    <FUNCTION>animation::Stop</FUNCTION>
+    <DECORATED>?Stop@animation@@QAE_NXZ</DECORATED>
+    <FUNCLINE>95</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>actorcollision.cpp</FILENAME>
+      <LINE>91</LINE>
+      <COLUMN>29</COLUMN>
+    </SFA>
+    <DEFECTCODE>6201</DEFECTCODE>
+    <DESCRIPTION>Index '1024' is out of valid index range '0' to '1023' for possibly stack allocated buffer 'this-&gt;mAdjacentActorIDs'.</DESCRIPTION>
+    <FUNCTION>SpatialMonitor::GetAdjacentActors</FUNCTION>
+    <DECORATED>?GetAdjacentActors@SpatialMonitor@@IAE_NH@Z</DECORATED>
+    <FUNCLINE>88</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>actorcollision.cpp</FILENAME>
+      <LINE>91</LINE>
+      <COLUMN>31</COLUMN>
+    </SFA>
+    <DEFECTCODE>6386</DEFECTCODE>
+    <DESCRIPTION>Buffer overrun while writing to 'this-&gt;mAdjacentActorIDs':  the writable size is '4096' bytes, but '4100' bytes might be written.</DESCRIPTION>
+    <FUNCTION>SpatialMonitor::GetAdjacentActors</FUNCTION>
+    <DECORATED>?GetAdjacentActors@SpatialMonitor@@IAE_NH@Z</DECORATED>
+    <FUNCLINE>88</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>actorcollision.cpp</FILENAME>
+        <LINE>90</LINE>
+        <COLUMN>21</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>actorcollision.cpp</FILENAME>
+        <LINE>91</LINE>
+        <COLUMN>31</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>Invalid write to 'this-&gt;mAdjacentActorIDs[1024]', (writable range is 0 to 1023)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>animationgraph.cpp</FILENAME>
+      <LINE>35</LINE>
+      <COLUMN>23</COLUMN>
+    </SFA>
+    <DEFECTCODE>6386</DEFECTCODE>
+    <DESCRIPTION>Buffer overrun while writing to 'mTransitionMatrix':  the writable size is 'mLoopsAnimIDs.public: unsigned int __thiscall std::vector&lt;int,class std::allocator&lt;int&gt; &gt;::size(void)const ()*4' bytes, but '8' bytes might be written.</DESCRIPTION>
+    <FUNCTION>AnimGraphData::CreateTranisitionMatrix</FUNCTION>
+    <DECORATED>?CreateTranisitionMatrix@AnimGraphData@@QAE_NXZ</DECORATED>
+    <FUNCLINE>29</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>31</LINE>
+        <COLUMN>19</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>33</LINE>
+        <COLUMN>10</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>33</LINE>
+        <COLUMN>19</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Enter this loop, (assume 'i&lt;(int)mLoopsAnimIDs.size()')</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>35</LINE>
+        <COLUMN>23</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>36</LINE>
+        <COLUMN>11</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>36</LINE>
+        <COLUMN>20</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>33</LINE>
+        <COLUMN>49</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'i' may equal 1</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>33</LINE>
+        <COLUMN>19</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Continue this loop, (assume 'i&lt;(int)mLoopsAnimIDs.size()')</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>35</LINE>
+        <COLUMN>23</COLUMN>
+        <KEYEVENT>
+          <ID>4</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>Invalid write to 'mTransitionMatrix[1]', (writable range is 0 to 0)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>animationgraph.cpp</FILENAME>
+      <LINE>38</LINE>
+      <COLUMN>27</COLUMN>
+    </SFA>
+    <DEFECTCODE>6386</DEFECTCODE>
+    <DESCRIPTION>Buffer overrun while writing to 'mTransitionMatrix[i]':  the writable size is 'mLoopsAnimIDs.public: unsigned int __thiscall std::vector&lt;int,class std::allocator&lt;int&gt; &gt;::size(void)const ()*4' bytes, but '8' bytes might be written.</DESCRIPTION>
+    <FUNCTION>AnimGraphData::CreateTranisitionMatrix</FUNCTION>
+    <DECORATED>?CreateTranisitionMatrix@AnimGraphData@@QAE_NXZ</DECORATED>
+    <FUNCLINE>29</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>31</LINE>
+        <COLUMN>19</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>33</LINE>
+        <COLUMN>10</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'i' is NULL</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>33</LINE>
+        <COLUMN>19</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Enter this loop, (assume 'i&lt;(int)mLoopsAnimIDs.size()')</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>35</LINE>
+        <COLUMN>23</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>36</LINE>
+        <COLUMN>11</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>36</LINE>
+        <COLUMN>20</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Enter this loop, (assume 'j&lt;(int)mLoopsAnimIDs.size()')</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>38</LINE>
+        <COLUMN>27</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>36</LINE>
+        <COLUMN>50</COLUMN>
+        <KEYEVENT>
+          <ID>4</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'j' may equal 1</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>36</LINE>
+        <COLUMN>20</COLUMN>
+        <KEYEVENT>
+          <ID>5</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Continue this loop, (assume 'j&lt;(int)mLoopsAnimIDs.size()')</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>animationgraph.cpp</FILENAME>
+        <LINE>38</LINE>
+        <COLUMN>27</COLUMN>
+        <KEYEVENT>
+          <ID>6</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>Invalid write to 'mTransitionMatrix[i][1]', (writable range is 0 to 0)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>console.cpp</FILENAME>
+      <LINE>51</LINE>
+      <COLUMN>8</COLUMN>
+    </SFA>
+    <DEFECTCODE>6306</DEFECTCODE>
+    <DESCRIPTION>Incorrect call to 'sprintf': consider using 'vsprintf' which accepts a va_list as an argument.</DESCRIPTION>
+    <FUNCTION>ConsoleStringManager::ConsolePrintf</FUNCTION>
+    <DECORATED>?ConsolePrintf@ConsoleStringManager@@QAAXPADZZ</DECORATED>
+    <FUNCLINE>45</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>dialogue.cpp</FILENAME>
+      <LINE>34</LINE>
+      <COLUMN>7</COLUMN>
+    </SFA>
+    <DEFECTCODE>6386</DEFECTCODE>
+    <DESCRIPTION>Buffer overrun while writing to 'last_fit':  the writable size is '(unsigned int)size+(unsigned int)1' bytes, but '4' bytes might be written.</DESCRIPTION>
+    <FUNCTION>Dialogue::TextWrap</FUNCTION>
+    <DECORATED>?TextWrap@Dialogue@@QAE_NHPAD@Z</DECORATED>
+    <FUNCLINE>22</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>24</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>26</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>27</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>28</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>29</LINE>
+        <COLUMN>12</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>31</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>32</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>33</LINE>
+        <COLUMN>5</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'last_fit' is a 0 byte array</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>34</LINE>
+        <COLUMN>7</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'_Old_11`4' is equal to 4</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>34</LINE>
+        <COLUMN>7</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>Invalid write to 'last_fit', (outside its writable range)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>dialogue.cpp</FILENAME>
+      <LINE>34</LINE>
+      <COLUMN>7</COLUMN>
+    </SFA>
+    <DEFECTCODE>6387</DEFECTCODE>
+    <DESCRIPTION>'last_fit' could be '0':  this does not adhere to the specification for the function 'memset'. </DESCRIPTION>
+    <FUNCTION>Dialogue::TextWrap</FUNCTION>
+    <DECORATED>?TextWrap@Dialogue@@QAE_NHPAD@Z</DECORATED>
+    <FUNCLINE>22</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>24</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>26</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>27</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>28</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>29</LINE>
+        <COLUMN>12</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>31</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>32</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>33</LINE>
+        <COLUMN>5</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'last_fit' may be NULL</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>34</LINE>
+        <COLUMN>7</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'last_fit' is an In/Out argument to 'memset' (declared at c:\program files (x86)\microsoft visual studio 14.0\vc\include\vcruntime_string.h:60)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>34</LINE>
+        <COLUMN>7</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'last_fit' should not be NULL, because this is not consistent with the SAL annotation on 'memset'</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>dialogue.cpp</FILENAME>
+      <LINE>63</LINE>
+      <COLUMN>9</COLUMN>
+    </SFA>
+    <DEFECTCODE>6387</DEFECTCODE>
+    <DESCRIPTION>'last_fit' could be '0':  this does not adhere to the specification for the function 'strcpy'. See line 34 for an earlier location where this can occur</DESCRIPTION>
+    <FUNCTION>Dialogue::TextWrap</FUNCTION>
+    <DECORATED>?TextWrap@Dialogue@@QAE_NHPAD@Z</DECORATED>
+    <FUNCLINE>22</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>24</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>26</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>27</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>28</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>29</LINE>
+        <COLUMN>12</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>31</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>32</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>33</LINE>
+        <COLUMN>5</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'last_fit' may be NULL</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>34</LINE>
+        <COLUMN>7</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'last_fit' is an In/Out argument to 'memset' (declared at c:\program files (x86)\microsoft visual studio 14.0\vc\include\vcruntime_string.h:60)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>36</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>37</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>38</LINE>
+        <COLUMN>12</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Enter this loop, (assume 'tok!=0')</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>40</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>42</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>43</LINE>
+        <COLUMN>14</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>44</LINE>
+        <COLUMN>15</COLUMN>
+        <KEYEVENT>
+          <ID>4</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Skip this branch, (assume 'text_pix&gt;=text_pix_max' is false)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>63</LINE>
+        <COLUMN>9</COLUMN>
+        <KEYEVENT>
+          <ID>5</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'last_fit' is an In/Out argument to 'strcpy' (declared at c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h:119)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>63</LINE>
+        <COLUMN>9</COLUMN>
+        <KEYEVENT>
+          <ID>6</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'last_fit' should not be NULL, because this is not consistent with the SAL annotation on 'strcpy'</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>dialogue.cpp</FILENAME>
+      <LINE>32</LINE>
+      <COLUMN>7</COLUMN>
+    </SFA>
+    <DEFECTCODE>6386</DEFECTCODE>
+    <DESCRIPTION>Buffer overrun while writing to 'line':  the writable size is '(unsigned int)size+(unsigned int)1' bytes, but '4' bytes might be written.</DESCRIPTION>
+    <FUNCTION>Dialogue::TextWrap</FUNCTION>
+    <DECORATED>?TextWrap@Dialogue@@QAE_NHPAD@Z</DECORATED>
+    <FUNCLINE>22</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>24</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>26</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>27</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>28</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>29</LINE>
+        <COLUMN>12</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>31</LINE>
+        <COLUMN>5</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'line' is a 0 byte array</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>32</LINE>
+        <COLUMN>7</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'_Old_9`4' is equal to 4</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>32</LINE>
+        <COLUMN>7</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>Invalid write to 'line', (outside its writable range)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>level.cpp</FILENAME>
+      <LINE>68</LINE>
+      <COLUMN>6</COLUMN>
+    </SFA>
+    <DEFECTCODE>6246</DEFECTCODE>
+    <DESCRIPTION>Local declaration of 'overs' hides declaration of the same name in outer scope. For additional information, see previous declaration at line '64' of 'c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\level.cpp'.</DESCRIPTION>
+    <FUNCTION>Level::LoadWorld</FUNCTION>
+    <DECORATED>?LoadWorld@Level@@QAE_NPAUcJSON@@@Z</DECORATED>
+    <FUNCLINE>16</FUNCLINE>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>64</LINE>
+        <COLUMN>14</COLUMN>
+      </SFA>
+    </PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>level.cpp</FILENAME>
+      <LINE>151</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>6386</DEFECTCODE>
+    <DESCRIPTION>Buffer overrun while writing to 'Index':  the writable size is '(unsigned int)cJSON_GetArraySize(anim_set)*sizeof(int)' bytes, but '8' bytes might be written.</DESCRIPTION>
+    <FUNCTION>Level::LoadAnimations</FUNCTION>
+    <DECORATED>?LoadAnimations@Level@@QAE_NPAUcJSON@@@Z</DECORATED>
+    <FUNCLINE>113</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>115</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>116</LINE>
+        <COLUMN>13</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>117</LINE>
+        <COLUMN>10</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>117</LINE>
+        <COLUMN>19</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>119</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>120</LINE>
+        <COLUMN>17</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>123</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>124</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>125</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>127</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>128</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>129</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>130</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>131</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>133</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>135</LINE>
+        <COLUMN>10</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>136</LINE>
+        <COLUMN>5</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'Index' is a 0 byte array</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>138</LINE>
+        <COLUMN>11</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>138</LINE>
+        <COLUMN>20</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Enter this loop, (assume 'j&lt;cJSON_GetArraySize(anim_set)')</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>140</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>141</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>142</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>143</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>146</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>148</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>150</LINE>
+        <COLUMN>17</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>151</LINE>
+        <COLUMN>12</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>138</LINE>
+        <COLUMN>53</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'j' may equal 1</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>138</LINE>
+        <COLUMN>20</COLUMN>
+        <KEYEVENT>
+          <ID>4</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Continue this loop, (assume 'j&lt;cJSON_GetArraySize(anim_set)')</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>140</LINE>
+        <COLUMN>8</COLUMN>
+        <KEYEVENT>
+          <ID>5</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'j' is an In/Out argument to 'cJSON_GetArrayItem' (declared at c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\cjson.h:80)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>141</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>142</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>143</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>146</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>148</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>150</LINE>
+        <COLUMN>17</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>151</LINE>
+        <COLUMN>12</COLUMN>
+        <KEYEVENT>
+          <ID>6</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>Invalid write to 'Index', (outside its writable range)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>level.cpp</FILENAME>
+      <LINE>151</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>6011</DEFECTCODE>
+    <DESCRIPTION>Dereferencing NULL pointer 'Index'. </DESCRIPTION>
+    <FUNCTION>Level::LoadAnimations</FUNCTION>
+    <DECORATED>?LoadAnimations@Level@@QAE_NPAUcJSON@@@Z</DECORATED>
+    <FUNCLINE>113</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>115</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>116</LINE>
+        <COLUMN>13</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>117</LINE>
+        <COLUMN>10</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>117</LINE>
+        <COLUMN>19</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>119</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>120</LINE>
+        <COLUMN>17</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>123</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>124</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>125</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>127</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>128</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>129</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>130</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>131</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>133</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>135</LINE>
+        <COLUMN>10</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>136</LINE>
+        <COLUMN>5</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'Index' may be NULL</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>138</LINE>
+        <COLUMN>11</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>138</LINE>
+        <COLUMN>20</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Enter this loop, (assume 'j&lt;cJSON_GetArraySize(anim_set)')</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>140</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>141</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>142</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>143</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>146</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>148</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>150</LINE>
+        <COLUMN>17</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>151</LINE>
+        <COLUMN>12</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'Index' is dereferenced, but may still be NULL</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>level.cpp</FILENAME>
+      <LINE>120</LINE>
+      <COLUMN>17</COLUMN>
+    </SFA>
+    <DEFECTCODE>6386</DEFECTCODE>
+    <DESCRIPTION>Buffer overrun while writing to 'mAnim_names':  the writable size is '(unsigned int)cJSON_GetArraySize(animations)*sizeof(char *)' bytes, but '8' bytes might be written.</DESCRIPTION>
+    <FUNCTION>Level::LoadAnimations</FUNCTION>
+    <DECORATED>?LoadAnimations@Level@@QAE_NPAUcJSON@@@Z</DECORATED>
+    <FUNCLINE>113</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>115</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>116</LINE>
+        <COLUMN>13</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>117</LINE>
+        <COLUMN>10</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>117</LINE>
+        <COLUMN>19</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Enter this loop, (assume '&lt;branch condition&gt;')</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>119</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>120</LINE>
+        <COLUMN>17</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>123</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>124</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>125</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>127</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>128</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>129</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>130</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>131</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>133</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>135</LINE>
+        <COLUMN>10</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>136</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>138</LINE>
+        <COLUMN>11</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>138</LINE>
+        <COLUMN>20</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>153</LINE>
+        <COLUMN>14</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>154</LINE>
+        <COLUMN>18</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>155</LINE>
+        <COLUMN>21</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>158</LINE>
+        <COLUMN>15</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>117</LINE>
+        <COLUMN>54</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'i' may equal 1</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>117</LINE>
+        <COLUMN>19</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Continue this loop, (assume '&lt;branch condition&gt;')</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>119</LINE>
+        <COLUMN>7</COLUMN>
+        <KEYEVENT>
+          <ID>4</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'i' is an In/Out argument to 'cJSON_GetArrayItem' (declared at c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\cjson.h:80)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>120</LINE>
+        <COLUMN>17</COLUMN>
+        <KEYEVENT>
+          <ID>5</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>Invalid write to 'mAnim_names', (outside its writable range)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>level.cpp</FILENAME>
+      <LINE>150</LINE>
+      <COLUMN>17</COLUMN>
+    </SFA>
+    <DEFECTCODE>6386</DEFECTCODE>
+    <DESCRIPTION>Buffer overrun while writing to 'frame_data':  the writable size is '(unsigned int)cJSON_GetArraySize(anim_set)*sizeof(FrameSet)' bytes, but '8216' bytes might be written.</DESCRIPTION>
+    <FUNCTION>Level::LoadAnimations</FUNCTION>
+    <DECORATED>?LoadAnimations@Level@@QAE_NPAUcJSON@@@Z</DECORATED>
+    <FUNCLINE>113</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>115</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>116</LINE>
+        <COLUMN>13</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>117</LINE>
+        <COLUMN>10</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>117</LINE>
+        <COLUMN>19</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>119</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>120</LINE>
+        <COLUMN>17</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>123</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>124</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>125</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>127</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>128</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>129</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>130</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>131</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>133</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>135</LINE>
+        <COLUMN>10</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'frame_data' is a 0 byte array</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>136</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>138</LINE>
+        <COLUMN>11</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>138</LINE>
+        <COLUMN>20</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Enter this loop, (assume 'j&lt;cJSON_GetArraySize(anim_set)')</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>140</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>141</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>142</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>143</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>146</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>148</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>150</LINE>
+        <COLUMN>17</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>151</LINE>
+        <COLUMN>12</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>138</LINE>
+        <COLUMN>53</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'j' may equal 1</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>138</LINE>
+        <COLUMN>20</COLUMN>
+        <KEYEVENT>
+          <ID>4</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Continue this loop, (assume 'j&lt;cJSON_GetArraySize(anim_set)')</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>140</LINE>
+        <COLUMN>8</COLUMN>
+        <KEYEVENT>
+          <ID>5</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'j' is an In/Out argument to 'cJSON_GetArrayItem' (declared at c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\cjson.h:80)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>141</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>142</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>143</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>146</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>148</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>level.cpp</FILENAME>
+        <LINE>150</LINE>
+        <COLUMN>17</COLUMN>
+        <KEYEVENT>
+          <ID>6</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>Invalid write to 'frame_data', (outside its writable range)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>miscdraw.cpp</FILENAME>
+      <LINE>101</LINE>
+      <COLUMN>16</COLUMN>
+    </SFA>
+    <DEFECTCODE>6011</DEFECTCODE>
+    <DESCRIPTION>Dereferencing NULL pointer 'LineSur'. </DESCRIPTION>
+    <FUNCTION>DrawText</FUNCTION>
+    <DECORATED>?DrawText@@YA_NPAUSDL_Renderer@@PAU_TTF_Font@@PADUSDL_Color@@3@Z</DECORATED>
+    <FUNCLINE>91</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>miscdraw.cpp</FILENAME>
+        <LINE>93</LINE>
+        <COLUMN>13</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>miscdraw.cpp</FILENAME>
+        <LINE>95</LINE>
+        <COLUMN>12</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>miscdraw.cpp</FILENAME>
+        <LINE>96</LINE>
+        <COLUMN>5</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'LineSur' may be NULL (Enter this branch)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>miscdraw.cpp</FILENAME>
+        <LINE>98</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>miscdraw.cpp</FILENAME>
+        <LINE>101</LINE>
+        <COLUMN>16</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'LineSur' is an In/Out argument to 'SDL_SetColorKey' (declared at c:\users\baptistac1\documents\visual studio 2015\projects\sdl2-2.0.4\include\sdl_surface.h:224)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>miscdraw.cpp</FILENAME>
+        <LINE>101</LINE>
+        <COLUMN>16</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'LineSur' is dereferenced, but may still be NULL</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>sound.cpp</FILENAME>
+      <LINE>52</LINE>
+      <COLUMN>14</COLUMN>
+    </SFA>
+    <DEFECTCODE>6282</DEFECTCODE>
+    <DESCRIPTION>Incorrect operator:  assignment of constant in Boolean context. Consider using '==' instead.</DESCRIPTION>
+    <FUNCTION>ChannelManager::PlaySound</FUNCTION>
+    <DECORATED>?PlaySound@ChannelManager@@QAE_NHPAUMix_Chunk@@H@Z</DECORATED>
+    <FUNCLINE>50</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>sound.cpp</FILENAME>
+      <LINE>86</LINE>
+      <COLUMN>14</COLUMN>
+    </SFA>
+    <DEFECTCODE>6282</DEFECTCODE>
+    <DESCRIPTION>Incorrect operator:  assignment of constant in Boolean context. Consider using '==' instead.</DESCRIPTION>
+    <FUNCTION>ChannelManager::PlayLoop</FUNCTION>
+    <DECORATED>?PlayLoop@ChannelManager@@QAE_NHPAUMix_Chunk@@H@Z</DECORATED>
+    <FUNCLINE>84</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>utils.cpp</FILENAME>
+      <LINE>45</LINE>
+      <COLUMN>16</COLUMN>
+    </SFA>
+    <DEFECTCODE>6011</DEFECTCODE>
+    <DESCRIPTION>Dereferencing NULL pointer 'surface'. </DESCRIPTION>
+    <FUNCTION>LoadSurfaceBMP</FUNCTION>
+    <DECORATED>?LoadSurfaceBMP@@YAPAUSDL_Surface@@PBD@Z</DECORATED>
+    <FUNCLINE>26</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>29</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>36</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>37</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>39</LINE>
+        <COLUMN>12</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>40</LINE>
+        <COLUMN>13</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'surface' may be NULL (Enter this branch)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>42</LINE>
+        <COLUMN>19</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>45</LINE>
+        <COLUMN>16</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'surface' is an In/Out argument to 'SDL_SetColorKey' (declared at c:\users\baptistac1\documents\visual studio 2015\projects\sdl2-2.0.4\include\sdl_surface.h:224)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>45</LINE>
+        <COLUMN>16</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'surface' is dereferenced, but may still be NULL</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>utils.cpp</FILENAME>
+      <LINE>92</LINE>
+      <COLUMN>8</COLUMN>
+    </SFA>
+    <DEFECTCODE>6387</DEFECTCODE>
+    <DESCRIPTION>'filecontent' could be '0':  this does not adhere to the specification for the function 'fread'. </DESCRIPTION>
+    <FUNCTION>LoadJSON</FUNCTION>
+    <DECORATED>?LoadJSON@@YAPAUcJSON@@PBD@Z</DECORATED>
+    <FUNCLINE>70</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>73</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>80</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>81</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>82</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>84</LINE>
+        <COLUMN>13</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>85</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>87</LINE>
+        <COLUMN>5</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'filecontent' may be NULL</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>89</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>90</LINE>
+        <COLUMN>4</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>92</LINE>
+        <COLUMN>8</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'filecontent' is an In/Out argument to 'fread' (declared at c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h:231)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>92</LINE>
+        <COLUMN>8</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'filecontent' should not be NULL, because this is not consistent with the SAL annotation on 'fread'</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>utils.cpp</FILENAME>
+      <LINE>95</LINE>
+      <COLUMN>19</COLUMN>
+    </SFA>
+    <DEFECTCODE>6011</DEFECTCODE>
+    <DESCRIPTION>Dereferencing NULL pointer 'filecontent'. See line 92 for an earlier location where this can occur</DESCRIPTION>
+    <FUNCTION>LoadJSON</FUNCTION>
+    <DECORATED>?LoadJSON@@YAPAUcJSON@@PBD@Z</DECORATED>
+    <FUNCLINE>70</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>73</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>80</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>81</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>82</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>84</LINE>
+        <COLUMN>13</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>85</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>87</LINE>
+        <COLUMN>5</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'filecontent' may be NULL</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>89</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>90</LINE>
+        <COLUMN>4</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>92</LINE>
+        <COLUMN>8</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'filecontent' is an In/Out argument to 'fread' (declared at c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h:231)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>93</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>95</LINE>
+        <COLUMN>19</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'filecontent' is dereferenced, but may still be NULL</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT></DEFECTS>

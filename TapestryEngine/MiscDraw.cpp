@@ -1,0 +1,145 @@
+#include"Utils.h"
+#include"Console.h"
+#include "MiscDraw.h"
+
+SDL_Rect GetScreenPos(Actor& act, Camera cam)
+{
+	SDL_Rect ScreenPos;
+	ScreenPos.h = (int)floor((float)(act.GetDrawHeight()) * ((float)(SCREEN_H) / (float)(cam.GetCamView()->h)));
+	ScreenPos.w = (int)floor((float)(act.GetDrawWidth())  * ((float)(SCREEN_W) / (float)(cam.GetCamView()->w)));
+
+	ScreenPos.x = (int)floor((float)(act.GetDrawX() + act.GetX() - cam.GetCamX())*((float)(SCREEN_W) / (float)(cam.GetCamView()->w)));
+	ScreenPos.y = (int)floor((float)(act.GetDrawY() + act.GetY() - cam.GetCamY())*((float)(SCREEN_H) / (float)(cam.GetCamView()->h)));
+
+	return ScreenPos;
+}
+
+bool DrawParallax(SDL_Renderer* ren, SDL_Texture* img, Camera cam, float scale, int worldH, int worldW)
+{
+	int imgH;
+	int imgW;
+	SDL_QueryTexture(img, NULL, NULL, &imgW, &imgH);
+
+	SDL_Rect clip;
+	clip.h = (int)(cam.GetCamView()->h * scale);
+	clip.w = (int)(cam.GetCamView()->w * scale);
+	clip.x = (int)(cam.GetCamX() / ( (worldW - cam.GetCamView()->w) / ( imgW - (cam.GetCamView()->w)*scale) ));
+	clip.y = (int)(cam.GetCamY() / ( (worldH - cam.GetCamView()->h) / ( imgH - (cam.GetCamView()->h)*scale) ));
+
+//	gCons->ConsPrintf("para bound x: %i - %i\n", clip.x, clip.w + clip.x);
+//	gCons->ConsPrintf("para bound y: %i - %i\n", clip.y, clip.h + clip.y);
+
+	SDL_RenderCopy(ren, img, &clip, NULL);
+
+	return true;
+}
+
+SDL_Rect DrawActor(SDL_Renderer* ren, Actor& act, Camera cam)
+{
+	SDL_Rect ScreenPos = GetScreenPos(act, cam);
+
+	Frame* RenderFrame = act.GetFrame();
+
+	if (RenderFrame != NULL)
+	{
+		SDL_RendererFlip flip;
+		flip = (SDL_RendererFlip)act.GetDir();
+		SDL_SetTextureAlphaMod(RenderFrame->FrameSource, act.GetOpacity());
+
+		SDL_RenderCopyEx(ren, RenderFrame->FrameSource, &(RenderFrame->FrameRect), &ScreenPos, 0, NULL, flip);
+		Node** hat_array = act.GetHats()->Dump();
+		for (int i = 0; i < act.GetHats()->Size(); i++)
+		{
+			if (((Hat*)( hat_array[i]->GetData() ))->IsEnabled())
+			{
+				DrawActor(ren, *(Actor*)(hat_array[i]->GetData()), cam);
+			}
+		}
+	}
+	else
+	{
+		//gCons->ConsPrintf("Actor frame is null\n");
+	}
+	return ScreenPos;
+}
+
+bool DrawRect(SDL_Renderer* mRen, SDL_Rect WrldPos, Camera& mCam)
+{
+	SDL_Rect ScreenPos;
+	ScreenPos.h = (int)((float)(WrldPos.h)*((float)(SCREEN_H) / (float)(mCam.GetCamView()->h)));
+	ScreenPos.w = (int)((float)(WrldPos.w)*((float)(SCREEN_W) / (float)(mCam.GetCamView()->w)));
+
+	ScreenPos.x = (int)((float)(WrldPos.x - mCam.GetCamX())*((float)(SCREEN_W) / (float)(mCam.GetCamView()->w)));
+	ScreenPos.y = (int)((float)(WrldPos.y - mCam.GetCamY())*((float)(SCREEN_H) / (float)(mCam.GetCamView()->h)));
+
+	SDL_Point pts[5];
+	pts[0].x = ScreenPos.x;
+	pts[0].y = ScreenPos.y;
+	pts[1].x = ScreenPos.x + ScreenPos.w;
+	pts[1].y = ScreenPos.y;
+	pts[2].x = ScreenPos.x + ScreenPos.w;
+	pts[2].y = ScreenPos.y + ScreenPos.h;
+	pts[3].x = ScreenPos.x;
+	pts[3].y = ScreenPos.y + ScreenPos.h;
+	pts[4].x = ScreenPos.x;
+	pts[4].y = ScreenPos.y;
+
+	SDL_RenderDrawLines(mRen, pts, 5);
+
+	return false;
+}
+
+bool DrawText(SDL_Renderer* ren, TTF_Font* font, char* text, SDL_Color Text_c, SDL_Color Back_c)
+{
+	const char* error;
+
+	SDL_Surface* LineSur = TTF_RenderText_Shaded(font, text, Text_c, Back_c);
+	if (!LineSur)
+	{
+		error = SDL_GetError();
+	}
+
+	SDL_SetColorKey(LineSur, SDL_TRUE, SDL_MapRGB(LineSur->format, 0xFF, 0x00, 0xFF));
+
+	SDL_Texture* LineTex = SDL_CreateTextureFromSurface(ren, LineSur);
+	if (!LineTex)
+	{
+		error = SDL_GetError();
+	}
+	SDL_FreeSurface(LineSur);
+
+	SDL_Rect TextRect;
+
+	if (SDL_QueryTexture(LineTex, NULL, NULL, &TextRect.w, &TextRect.h))
+	{
+		error = SDL_GetError();
+	}
+
+	SDL_Rect LinePosRect;
+
+	LinePosRect.w = TextRect.w;
+	LinePosRect.h = TextRect.h;
+	LinePosRect.x = 0;
+	LinePosRect.y = 0;
+	//Why comment?
+//	if (SDL_RenderCopy(ren, LineTex, &mTextRect, &mLinePosRect))
+//	{
+//		error = SDL_GetError();
+//	}
+	SDL_DestroyTexture(LineTex);
+
+	return false;
+}
+
+//bool DrawBone(SDL_Renderer* ren, Bone* bone)
+//{
+
+//}
+
+bool DrawMapTest(SDL_Renderer* ren, SDL_Surface* map)
+{
+	SDL_Texture* map_tex = SDL_CreateTextureFromSurface(ren, map);
+	const char* error = SDL_GetError();
+	SDL_RenderCopy(ren, map_tex, NULL, NULL);
+	return false;
+}

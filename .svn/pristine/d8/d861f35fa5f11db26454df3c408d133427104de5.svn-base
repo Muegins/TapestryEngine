@@ -1,0 +1,145 @@
+#include "BinaryTree.h"
+#include "Utils.h"
+
+bool Node::Insert(int i, void* data)
+{
+	return InsertNode(new Node(this, i, data));
+}
+
+Node* Node::Search(int i)
+{
+	if (mItem == i) { return this; }
+	else if (i < mItem && mLeft != NULL ) { return mLeft->Search(i);  }
+	else if (mItem < i && mRight != NULL) { return mRight->Search(i); }
+	else //Item Could not be found
+	{
+		return NULL;
+	}
+}
+
+int Node::Size(int i)
+{
+	i++;
+	if (mLeft  != NULL)  { i = mLeft->Size(i);  }
+	if (mRight != NULL)  { i = mRight->Size(i); }
+	return i;
+}
+
+Node** Node::Dump(int index, Node** contents)
+{
+	if (contents == 0)
+	{
+		//contents = (Node**)malloc(Size()); 
+		contents = new Node*[Size()];
+	}
+	contents[index] = this;
+	index++;
+
+
+	if (mLeft != NULL ) { mLeft->Dump(index, contents);  }
+	if (mRight != NULL) { mRight->Dump(index, contents); }
+
+	return contents;
+}
+
+bool Node::InsertNode(Node* n)
+{
+
+	if (n->mItem < mItem)
+	{
+		if (mLeft == NULL)
+		{
+			mLeft = n; 
+			n->mParent = this;
+			return true; 
+		}
+		else { return mLeft->InsertNode(n); }
+	} 
+
+	else if (mItem < n->mItem)
+	{
+		if (mRight == NULL) 
+		{ 
+			mRight = n; 			
+		n->mParent = this;
+		return true; 
+		}
+		else { return mRight->InsertNode(n); }
+	}
+	else// i==mItem this should never happen
+	{
+		//error
+		return false;
+	}
+}
+
+bool Node::InsertNodeAtRoot(Node* n)
+{
+	if (mParent != NULL)
+	{
+		return mParent->InsertNodeAtRoot(n);
+	}
+	else
+	{
+		bool r = InsertNode(n);
+		return r;
+	}
+}
+
+void Node::Delete()
+{
+	if (mParent == NULL) //If the node being deleted is the root.
+	{
+		mItem = 0;
+		mData = NULL;
+		return;
+	}
+	else if (mParent->mLeft == this ) { mParent->mLeft = NULL;  }
+	else if (mParent->mRight == this) { mParent->mRight = NULL; }
+	else 
+	{
+		assert(false);
+		return; //node listed as parent is does not have this node as a child. Tree broken.
+	}
+		 if (mLeft != NULL) 
+		 {
+			 InsertNodeAtRoot(mLeft); 
+			 mLeft->Delete();
+		 }
+		 if (mRight != NULL)
+		 {
+			 InsertNodeAtRoot(mRight); 	
+			 mRight->Delete();
+		 }
+	delete this;
+}
+
+void Node::rotate_left()
+{
+	Node* parent_i = mParent;
+	Node* left_i  = mLeft;
+	Node* right_i = mRight;
+	
+		 if (mParent->mLeft == this) { mParent->AttachLeft(left_i); }
+	else if (mParent->mRight == this) { mParent->AttachRight(left_i); }
+
+	Node* orphan = left_i->mLeft;
+	left_i->AttachLeft(this);
+
+	mRight->AttachRight(orphan);
+}
+
+void Node::rotate_right()
+{
+	Node* parent_i = mParent;
+	Node* left_i = mLeft;
+	Node* right_i = mRight;
+
+		 if (mParent->mLeft == this) { mParent->AttachLeft(right_i); }
+	else if (mParent->mRight == this) { mParent->AttachRight(right_i); }
+
+	Node* orphan = right_i->mRight;
+	left_i->AttachRight(this);
+
+	mRight->AttachLeft(orphan);
+}

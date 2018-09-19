@@ -1,0 +1,203 @@
+#include "ActorCollision.h"
+
+bool SpatialMonitor::PartitionCells(int worldH, int worldW)
+{
+	int cellW = (worldW / CELLS_X);
+	int cellH = (worldH / CELLS_Y);
+
+	for (int i = 0; i < CELLS_Y; i++)
+	{
+		for (int j = 0; j < CELLS_X; j++)
+		{
+			SDL_Rect cell;
+			cell.w = cellW;
+			cell.h = cellH;
+			cell.x = cellW * j;
+			cell.y = cellH * i;
+
+			mCells[i*CELLS_X + j] = cell;
+
+		}
+	}
+	return true;
+}
+
+bool SpatialMonitor::LogActor(Actor& act)
+{
+	if (mActorCount < MAX_ACTORS)
+	{
+		mActors[mActorCount] = &act;
+		act.SetSpatID(mActorCount);
+		UpdateActorCell(mActorCount);
+		mActorCount += 1;
+		return true;
+	}
+	else
+	{
+		gCons->ConsPrintf("Failed to Log Actor. Spatial Monitor actor capacity reached! \n");
+		return false;
+	}
+}
+
+int SpatialMonitor::UpdateActorCell(int id)
+{
+	for (int i = 0; i < CELL_COUNT; i++)
+	{
+		if (DetectCenterPointIntersect(&mCells[i], mActors[id]->GetPosition()))
+		{
+			//gCons->ConsPrintf("Actor entering cell %i\n", i);
+			mActorCells[id] = i;
+			return i;
+		}
+	}
+	gCons->ConsPrintf("Could not find Actor cell\n");
+	return -1;
+}
+
+int* SpatialMonitor::GetAdjacentCells(int cellnum, int cells[9])
+{
+	cells[0] = (cellnum - CELLS_X - 1);
+	cells[1] = (cellnum - CELLS_X);
+	cells[2] = (cellnum - CELLS_X + 1);
+
+	cells[3] = (cellnum - 1);
+	cells[4] = (cellnum);
+	cells[5] = (cellnum + 1);
+
+	cells[6] = (cellnum + CELLS_X - 1);
+	cells[7] = (cellnum + CELLS_X);
+	cells[8] = (cellnum + CELLS_X + 1);
+
+	return cells;
+}
+
+bool SpatialMonitor::GetActorsInCell(int cellnum)
+{
+	for (int i = 0; i < MAX_ACTORS; i++)
+	{
+		if (mActorCells[i] == cellnum)
+		{
+			//gCons->ConsPrintf("Actor %i is in adjacent cell\n", i);
+			mAdjacentActorIDs[mAdjacentActorCount] = i;
+			mAdjacentActorCount++;
+		}
+	}
+	return true;
+}
+
+bool SpatialMonitor::GetAdjacentActors(int cellnum)
+{
+	mAdjacentActorCount = 0;
+	mAdjacentActorIDs[MAX_ACTORS] = { 0 };
+
+	int cells[9];
+	GetAdjacentCells(cellnum, cells);
+
+	for (int i = 0; i < 9; i++)
+	{
+		GetActorsInCell(cells[i]);
+		//gDiagDraw->LogDiagRect(mCells[cells[i]]);
+	}
+	return true;
+}
+
+bool SpatialMonitor::DetectActorCollision(int id1, int id2)
+{
+	if (id1 != id2)
+	{
+		//gDiagDraw->LogDiagRect(*mActors[id2]->GetPosition());
+		return DetectRectIntersect(mActors[id1]->GetPosition(), mActors[id2]->GetPosition());
+	}
+	else
+	{
+		//gCons->ConsPrintf("Attempted to check actor collision with itself\n");
+		return false;
+	}
+}
+
+bool SpatialMonitor::DetectRectSensors(SDL_Rect* sensor, int DetectorID, int foreignID)
+{
+	if (DetectorID != foreignID)
+	{
+		//gDiagDraw->LogDiagRect(*sensor);
+		//gDiagDraw->LogDiagRect(*mActors[foreignID]->GetPosition());
+		return DetectRectIntersect(sensor, mActors[foreignID]->GetPosition());
+	}
+	else
+	{
+		//gCons->ConsPrintf("Attempted to check actor collision with itself\n");
+		return false;
+	}
+}
+
+bool SpatialMonitor::HandleCollisions(int CallerID)
+{
+	int CallerCell = GetActorCell(CallerID);
+	GetAdjacentActors(CallerCell);
+
+	for (int i = 0; i < mAdjacentActorCount; i++)
+	{
+		if (DetectActorCollision(CallerID, mAdjacentActorIDs[i]) == true) //i is the wrong value
+		{
+			mActors[CallerID]->EventProcess(Event(ACTOR_COLLISION, mActors[mAdjacentActorIDs[i]]));
+		}
+	}
+	return true;
+}
+
+bool SpatialMonitor::HandleRectSensors(SDL_Rect* sensor, int CallerID, SensorType SeType)
+{
+	int CallerCell = GetActorCell(CallerID);
+	GetAdjacentActors(CallerCell);
+
+	for (int i = 0; i < mAdjacentActorCount; i++)
+	{
+		if (DetectRectSensors(sensor, CallerID, mAdjacentActorIDs[i]) == true)
+		{
+			mActors[CallerID]->EventProcess(Event(SENSOR_COLLISION, SeType, mActors[mAdjacentActorIDs[i]]));
+		}
+	}
+	return true;
+}
+
+bool SpatialMonitor::TestBlockers(SDL_Rect* sensor, int CallerID)
+{
+	int CallerCell = GetActorCell(CallerID);
+	GetAdjacentActors(CallerCell);
+
+	for (int i = 0; i < mAdjacentActorCount; i++)
+	{
+		if (DetectRectSensors(sensor, CallerID, mAdjacentActorIDs[i]) == true)
+		{
+			if (mActors[mAdjacentActorIDs[i]]->IsBlocking() == true)
+			{
+				return true;
+			}
+			//mActors[CallerID]->EventProcess(Event(SENSOR_COLLISION, SeType, mActors[i]));
+		}
+	}
+	return false;
+}
+
+bool SpatialMonitor::EventProcess(Event eve)
+{
+	switch (*eve.GetEventType())
+	{
+	case MOVED_THIS_FRAME:
+		UpdateActorCell(eve.GetEventData()->i);
+		HandleCollisions(eve.GetEventData()->i);
+		return true;
+		break;
+	case CHECK_RECT_SENSOR:
+		HandleRectSensors(eve.GetEventData()->sd.sensor, eve.GetEventData()->sd.ID, eve.GetEventData()->sd.st);
+		return true;
+		break;
+	case CHECK_BLOCKERS:
+		return TestBlockers(eve.GetEventData()->sd.sensor, eve.GetEventData()->sd.ID);
+		break;
+	default:
+		gCons->ConsPrintf("Spatial Monitor Received Invalid Event Type\n");
+		return false;
+		break;
+	}
+}

@@ -1,0 +1,141 @@
+#ifndef BINARY_TREE_H
+#define BINARY_TREE_H
+
+#define NULL 0
+
+
+class Node
+{
+public:
+
+	Node() : mParent(NULL), mLeft(NULL), mRight(NULL), mColor(RED)
+	{}
+
+	Node(Node* parent, int item, void* data) : mItem(item), mData(data), mParent(parent), mLeft(NULL), mRight(NULL), mColor(RED)
+	{}
+
+	Node(int item, void* data) : mItem(item), mData(data), mParent(NULL), mLeft(NULL), mRight(NULL), mColor(BLACK) //Used to create debugging root node w/test data
+	{}
+
+	bool Insert(int i, void* data);
+	
+	Node* Search(int i);
+
+	int Size(int i = 0);
+
+	Node** Dump(int index = 0, Node** contents = 0); //Should always be called with no arguments, arguements only used for recursion.
+
+	bool InsertNode(Node* n);
+
+	bool InsertNodeAtRoot(Node* n);
+
+	void Delete();
+
+	void rotate_left();
+	void rotate_right();
+
+	int GetItem()
+	{
+		return mItem;
+	}
+
+	void* GetData()
+	{
+		return mData;
+	}
+
+	void AttachLeft(Node* n)
+	{
+		n->mParent = this;
+		mLeft = n;
+	}
+
+	void AttachRight(Node* n)
+	{
+		n->mParent = this;
+		mRight = n;
+	}
+
+	void SwapColor()
+	{
+		if (mColor == RED) { mColor = BLACK; }
+		else               { mColor = RED; }
+	}
+
+	Node* mParent;
+	Node* mLeft;
+	Node* mRight;
+
+protected:
+
+	enum { RED, BLACK } mColor;
+
+	int mItem;
+
+	void* mData;
+};
+
+
+class BinaryTree
+{
+public:
+
+	BinaryTree() : mRoot(NULL)
+	{
+	}
+
+	BinaryTree(Node* Root) : mRoot(Root)
+	{
+	}
+
+	bool Insert(int i, void* data)
+	{
+		if (mRoot != NULL)
+		{
+			return mRoot->Insert(i, data);
+		}
+		else //mRoot == NULL -> Tree is empty
+		{
+			mRoot = new Node(i, data);
+			return true;
+		}
+	}
+
+	Node* Search(int i)
+	{
+		if (mRoot != NULL)
+		{
+			return mRoot->Search(i);
+		}
+		return NULL;
+	}
+
+	int Size(int i = 0)
+	{
+		if (mRoot != NULL)
+		{
+			return mRoot->Size(i);
+		}
+		return -1;
+	}
+
+	Node** Dump(int index = 0, Node** contents = 0)
+	{
+		if (mRoot != NULL)
+		{
+			return mRoot->Dump(index, contents);
+		}
+		return NULL;
+	}
+
+	void Delete()
+	{
+		return mRoot->Delete();
+	}
+
+
+protected:
+
+	Node* mRoot;
+};
+#endif

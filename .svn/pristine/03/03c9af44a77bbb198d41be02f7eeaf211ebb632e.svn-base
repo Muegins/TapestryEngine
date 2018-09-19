@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>animation.h</FILENAME>
+      <LINE>92</LINE>
+      <COLUMN>20</COLUMN>
+    </SFA>
+    <DEFECTCODE>6282</DEFECTCODE>
+    <DESCRIPTION>Incorrect operator:  assignment of constant in Boolean context. Consider using '==' instead.</DESCRIPTION>
+    <FUNCTION>animation::Play</FUNCTION>
+    <DECORATED>?Play@animation@@QAE_NH@Z</DECORATED>
+    <FUNCLINE>89</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>animation.h</FILENAME>
+      <LINE>98</LINE>
+      <COLUMN>20</COLUMN>
+    </SFA>
+    <DEFECTCODE>6282</DEFECTCODE>
+    <DESCRIPTION>Incorrect operator:  assignment of constant in Boolean context. Consider using '==' instead.</DESCRIPTION>
+    <FUNCTION>animation::Stop</FUNCTION>
+    <DECORATED>?Stop@animation@@QAE_NXZ</DECORATED>
+    <FUNCLINE>95</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>dialogue.cpp</FILENAME>
+      <LINE>34</LINE>
+      <COLUMN>7</COLUMN>
+    </SFA>
+    <DEFECTCODE>6386</DEFECTCODE>
+    <DESCRIPTION>Buffer overrun while writing to 'last_fit':  the writable size is '(unsigned int)size+(unsigned int)1' bytes, but '4' bytes might be written.</DESCRIPTION>
+    <FUNCTION>Dialogue::TextWrap</FUNCTION>
+    <DECORATED>?TextWrap@Dialogue@@QAE_NHPAD@Z</DECORATED>
+    <FUNCLINE>22</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>24</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>26</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>27</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>28</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>29</LINE>
+        <COLUMN>12</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>31</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>32</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>33</LINE>
+        <COLUMN>5</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'last_fit' is a 0 byte array</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>34</LINE>
+        <COLUMN>7</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'_Old_11`4' is equal to 4</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>34</LINE>
+        <COLUMN>7</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>Invalid write to 'last_fit', (outside its writable range)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>dialogue.cpp</FILENAME>
+      <LINE>34</LINE>
+      <COLUMN>7</COLUMN>
+    </SFA>
+    <DEFECTCODE>6387</DEFECTCODE>
+    <DESCRIPTION>'last_fit' could be '0':  this does not adhere to the specification for the function 'memset'. </DESCRIPTION>
+    <FUNCTION>Dialogue::TextWrap</FUNCTION>
+    <DECORATED>?TextWrap@Dialogue@@QAE_NHPAD@Z</DECORATED>
+    <FUNCLINE>22</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>24</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>26</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>27</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>28</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>29</LINE>
+        <COLUMN>12</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>31</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>32</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>33</LINE>
+        <COLUMN>5</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'last_fit' may be NULL</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>34</LINE>
+        <COLUMN>7</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'last_fit' is an In/Out argument to 'memset' (declared at c:\program files (x86)\microsoft visual studio 14.0\vc\include\vcruntime_string.h:60)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>34</LINE>
+        <COLUMN>7</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'last_fit' should not be NULL, because this is not consistent with the SAL annotation on 'memset'</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>dialogue.cpp</FILENAME>
+      <LINE>63</LINE>
+      <COLUMN>9</COLUMN>
+    </SFA>
+    <DEFECTCODE>6387</DEFECTCODE>
+    <DESCRIPTION>'last_fit' could be '0':  this does not adhere to the specification for the function 'strcpy'. See line 34 for an earlier location where this can occur</DESCRIPTION>
+    <FUNCTION>Dialogue::TextWrap</FUNCTION>
+    <DECORATED>?TextWrap@Dialogue@@QAE_NHPAD@Z</DECORATED>
+    <FUNCLINE>22</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>24</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>26</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>27</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>28</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>29</LINE>
+        <COLUMN>12</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>31</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>32</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>33</LINE>
+        <COLUMN>5</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'last_fit' may be NULL</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>34</LINE>
+        <COLUMN>7</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'last_fit' is an In/Out argument to 'memset' (declared at c:\program files (x86)\microsoft visual studio 14.0\vc\include\vcruntime_string.h:60)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>36</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>37</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>38</LINE>
+        <COLUMN>12</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Enter this loop, (assume 'tok!=0')</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>40</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>42</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>43</LINE>
+        <COLUMN>14</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>44</LINE>
+        <COLUMN>15</COLUMN>
+        <KEYEVENT>
+          <ID>4</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Skip this branch, (assume 'text_pix&gt;=text_pix_max' is false)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>63</LINE>
+        <COLUMN>9</COLUMN>
+        <KEYEVENT>
+          <ID>5</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'last_fit' is an In/Out argument to 'strcpy' (declared at c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h:119)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>63</LINE>
+        <COLUMN>9</COLUMN>
+        <KEYEVENT>
+          <ID>6</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'last_fit' should not be NULL, because this is not consistent with the SAL annotation on 'strcpy'</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>dialogue.cpp</FILENAME>
+      <LINE>32</LINE>
+      <COLUMN>7</COLUMN>
+    </SFA>
+    <DEFECTCODE>6386</DEFECTCODE>
+    <DESCRIPTION>Buffer overrun while writing to 'line':  the writable size is '(unsigned int)size+(unsigned int)1' bytes, but '4' bytes might be written.</DESCRIPTION>
+    <FUNCTION>Dialogue::TextWrap</FUNCTION>
+    <DECORATED>?TextWrap@Dialogue@@QAE_NHPAD@Z</DECORATED>
+    <FUNCLINE>22</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>24</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>26</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>27</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>28</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>29</LINE>
+        <COLUMN>12</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>31</LINE>
+        <COLUMN>5</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'line' is a 0 byte array</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>32</LINE>
+        <COLUMN>7</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'_Old_9`4' is equal to 4</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>dialogue.cpp</FILENAME>
+        <LINE>32</LINE>
+        <COLUMN>7</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>Invalid write to 'line', (outside its writable range)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT>
+</DEFECTS>

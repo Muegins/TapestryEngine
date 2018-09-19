@@ -1,0 +1,600 @@
+#include "Level.h"
+
+Actor* FindRef(std::vector<ActorName*> refs, char* name)
+{
+	for (int i = 0; i < (int)refs.size(); i++)
+	{
+		if (strcmp(refs.at(i)->name, name) == false)
+		{
+			return refs.at(i)->act;
+		}
+	}
+
+	return NULL;
+}
+
+bool Level::LoadWorld(cJSON* level)
+{
+	cJSON* world = cJSON_GetObjectItem(level, "world");
+	mHeight = cJSON_GetObjectItem(world, "world_h")->valueint;
+	mWidth = cJSON_GetObjectItem(world, "world_w")->valueint;
+	
+	mSpatMon = SpatialMonitor(mHeight, mWidth);
+	
+	char * ter = cJSON_GetObjectItem(world, "terrain")->valuestring;
+	mColMap = LoadSurfaceBMP(ter);
+
+	cJSON* backs = cJSON_GetObjectItem(world, "backgrounds");
+	for (int i = 0; i < cJSON_GetArraySize(backs); i++)
+	{
+		cJSON* layer = cJSON_GetArrayItem(backs, i);
+		char* back = cJSON_GetObjectItem(layer, "back")->valuestring;
+
+		SDL_Texture* back_tex = SDL_CreateTextureFromSurface(mRen, LoadSurfaceBMP(back));
+		int alpha = cJSON_GetObjectItem(layer, "alpha")->valueint;
+
+		if (alpha != 0)
+		{
+			SDL_SetTextureAlphaMod(back_tex, alpha);
+		}
+
+		mBack.push_back(back_tex);
+
+		float p_factor = (float)cJSON_GetObjectItem(layer, "parallax_factor")->valueint;
+		mParallax_back.push_back(p_factor);
+	}
+
+	cJSON* fores = cJSON_GetObjectItem(world, "foregrounds");
+	for (int i = 0; i < cJSON_GetArraySize(fores); i++)
+	{
+		cJSON* layer = cJSON_GetArrayItem(fores, i);
+		char* fore = cJSON_GetObjectItem(layer, "fore")->valuestring;
+
+		SDL_Texture* fore_tex = SDL_CreateTextureFromSurface(mRen, LoadSurfaceBMP(fore));
+		int alpha = cJSON_GetObjectItem(layer, "alpha")->valueint;
+
+		if (alpha != 0)
+		{
+			SDL_SetTextureAlphaMod(fore_tex, alpha);
+		}
+
+		mFore.push_back(fore_tex);
+	}
+
+	cJSON* overs = cJSON_GetObjectItem(world, "overlays");
+	for (int i = 0; i < cJSON_GetArraySize(overs); i++)
+	{
+		cJSON* layer = cJSON_GetArrayItem(overs, i);
+		char* overs = cJSON_GetObjectItem(layer, "over")->valuestring;
+
+		SDL_Texture* over_tex = SDL_CreateTextureFromSurface(mRen, LoadSurfaceBMP(overs));
+		int alpha = cJSON_GetObjectItem(layer, "alpha")->valueint;
+
+		if (alpha != 0)
+		{
+			SDL_SetTextureAlphaMod(over_tex, alpha);
+		}
+
+		mOver.push_back(over_tex);
+
+		float p_factor = (float)cJSON_GetObjectItem(layer, "parallax_factor")->valueint;
+		mParallax_over.push_back(p_factor);
+	}
+	return true;
+}
+
+bool Level::LoadCamera(cJSON* level)
+{
+	cJSON* camera = cJSON_GetObjectItem(level, "camera");
+	int camx = cJSON_GetObjectItem(camera, "x")->valueint;
+	int camy = cJSON_GetObjectItem(camera, "y")->valueint;
+	int camh = cJSON_GetObjectItem(camera, "h")->valueint;
+	int camw = cJSON_GetObjectItem(camera, "w")->valueint;
+
+	mCam = Camera(camh, camw, camx, camy, mHeight, mWidth);
+	
+	cJSON* blockers = cJSON_GetObjectItem(camera, "blockers");
+	
+	for (int i = 0; i < cJSON_GetArraySize(blockers); i++)
+	{
+		cJSON* blocker = cJSON_GetArrayItem(blockers, i);
+		SDL_Rect* r = new SDL_Rect;
+		r->h = cJSON_GetObjectItem(blocker, "h")->valueint;
+		r->w = cJSON_GetObjectItem(blocker, "w")->valueint;
+		r->x = cJSON_GetObjectItem(blocker, "x")->valueint;
+		r->y = cJSON_GetObjectItem(blocker, "y")->valueint;
+
+		mCam.LogBlocker(r);
+	}
+
+	return true;
+}
+
+bool Level::LoadAnimations(cJSON* level)
+{
+	cJSON* animations = cJSON_GetObjectItem(level, "animations");
+	mAnim_names = (char**)malloc(cJSON_GetArraySize(animations) * sizeof(char*));
+	for (int i = 0; i < cJSON_GetArraySize(animations); i++)
+	{
+		cJSON* anim_pack = cJSON_GetArrayItem(animations, i);
+		mAnim_names[i] = cJSON_GetObjectItem(anim_pack, "pack_name")->valuestring;
+		//gCons->ConsPrintf("Animation Pack Name: %s\n", anim_names[i]);
+
+		cJSON* frame_size = cJSON_GetObjectItem(anim_pack, "frame_size");
+		int h = cJSON_GetObjectItem(frame_size, "h")->valueint;
+		int w = cJSON_GetObjectItem(frame_size, "w")->valueint;
+
+		cJSON* col_data = cJSON_GetObjectItem(anim_pack, "col_data");
+		int off_x = cJSON_GetObjectItem(col_data, "off_x")->valueint;
+		int off_y = cJSON_GetObjectItem(col_data, "off_y")->valueint;
+		int col_h = cJSON_GetObjectItem(col_data, "col_h")->valueint;
+		int col_w = cJSON_GetObjectItem(col_data, "col_w")->valueint;
+
+		cJSON* anim_set = cJSON_GetObjectItem(anim_pack, "anim_set");
+
+		FrameSet* frame_data = (FrameSet*)malloc(cJSON_GetArraySize(anim_set) * sizeof(FrameSet));
+		int* Index = (int*)malloc(cJSON_GetArraySize(anim_set) * sizeof(int));
+
+		for (int j = 0; j < cJSON_GetArraySize(anim_set); j++)
+		{
+			cJSON* anim = cJSON_GetArrayItem(anim_set, j);
+			char* filename = cJSON_GetObjectItem(anim, "filename")->valuestring;
+			int frame_count = cJSON_GetObjectItem(anim, "frame_count")->valueint;
+			int frame_rate = cJSON_GetObjectItem(anim, "frame_rate")->valueint;
+			//int h = cJSON_GetObjectItem(anim, "h")->valueint;
+			//int w = cJSON_GetObjectItem(anim, "w")->valueint;
+			char* id_str = cJSON_GetObjectItem(anim, "id")->valuestring;
+
+			int id = ConvertStringToSymbol(id_str);
+			//gCons->ConsPrintf("image source path: %s\n", filename);
+			frame_data[j] = FrameSet(mRen, filename, frame_count, frame_rate, h, w);
+			Index[j] = id;
+		}
+		AnimDataPack* pack = new AnimDataPack(cJSON_GetArraySize(anim_set), frame_data, Index);
+		pack->SetColData(off_x, off_y, col_h, col_w);
+		mAnimData.push_back(pack);
+
+
+		LoadAnimGraph(anim_pack);
+	}
+
+	return true;
+}
+
+bool Level::LoadAnimGraph(cJSON* anim_pack)
+{
+	AnimGraphData* anim_g = new AnimGraphData( *mAnimData.back() );
+
+	cJSON* loop_ids = cJSON_GetObjectItem(anim_pack, "loop_ids");
+	for (int i = 0; i < (int)cJSON_GetArraySize(loop_ids); i++)
+	{
+		int id = ConvertStringToSymbol(cJSON_GetArrayItem(loop_ids, i)->valuestring);
+		anim_g->DefineLoop(id);
+	}
+	anim_g->CreateTranisitionMatrix();
+
+	cJSON* transition_ids = cJSON_GetObjectItem(anim_pack, "transition_ids");
+	for (int i = 0; i < (int)cJSON_GetArraySize(transition_ids); i++)
+	{
+		int id = ConvertStringToSymbol(cJSON_GetArrayItem(transition_ids, i)->valuestring);
+		anim_g->DefineTransitions(id);
+	}
+
+	cJSON* anim_graph = cJSON_GetObjectItem(anim_pack, "anim_graph");
+	for (int i = 0; i < (int)cJSON_GetArraySize(anim_graph); i++)
+	{
+		cJSON* loop = cJSON_GetArrayItem(anim_graph, i);
+		char* loop_name = cJSON_GetObjectItem(loop, "loop_name")->valuestring;
+		int init_id = ConvertStringToSymbol(loop_name);
+
+		cJSON* transitions = cJSON_GetObjectItem(loop, "transitions");
+		for(int j = 0; j < (int)cJSON_GetArraySize(transitions); j++)
+		{
+			char* transition = cJSON_GetArrayItem(transitions, j)->valuestring;
+			int trans_id = ConvertStringToSymbol(transition);
+			
+			int target_id = anim_g->GetLoopIDIndex(j);
+
+			anim_g->PopulateTransitionMatrix(init_id, target_id, trans_id);
+		}
+	}
+	mAnimGraphs.push_back(anim_g);
+	
+	return false;
+}
+
+bool Level::LoadActors(cJSON* level)
+{
+	cJSON* actors = cJSON_GetObjectItem(level, "actors");
+	std::vector<ActorName*> ActorRefs;
+
+	mAHM = ActorHandleManager();
+
+	for (int i = 0; i < cJSON_GetArraySize(actors); i++)
+	{
+		cJSON* act = cJSON_GetArrayItem(actors, i);
+		
+		char* anim_pack = cJSON_GetObjectItem(act, "anim_pack")->valuestring;
+		//gCons->ConsPrintf("sought set name: %s\n", anim_pack);
+
+		AnimGraph* actor_pack = NULL;
+		for (int j = 0; j <  (int)mAnimData.size(); j++)
+		{
+			if (!strcmp(anim_pack, mAnim_names[j]))
+			{
+				actor_pack = new AnimGraph(mAnimGraphs.at(j));
+			}
+		}
+#ifdef DEBUG
+		assert(actor_pack != NULL);
+#endif
+
+	
+		SDL_Rect PosRect;
+		PosRect.x = cJSON_GetObjectItem(act, "x")->valueint;
+		PosRect.y = cJSON_GetObjectItem(act, "y")->valueint;
+		PosRect.h = actor_pack->GetAnimPack()->GetAnimData()->GetCol_h();
+		PosRect.w = actor_pack->GetAnimPack()->GetAnimData()->GetCol_w();
+		SDL_Rect DrawRect;
+		DrawRect.x = actor_pack->GetAnimPack()->GetAnimData()->GetOff_x();
+		DrawRect.y = actor_pack->GetAnimPack()->GetAnimData()->GetOff_y();
+		DrawRect.h = actor_pack->GetH();
+		DrawRect.w = actor_pack->GetW();
+
+		ActorName* ref = new ActorName;
+		ref->name = cJSON_GetObjectItem(act, "name")->valuestring;
+
+		char* type = cJSON_GetObjectItem(act, "type")->valuestring;
+		if (!strcmp(type, "player"))
+		{
+			Player* actor = new Player(mColMap, actor_pack, PosRect, DrawRect, &mAHM, &mSpatMon, &mPrtLib, &mSoundLib); //needs a delete
+			ref->act = actor;
+			mSpatMon.LogActor(*actor);
+			mInput->mFeed.Subscribe(actor);
+			
+
+			mCam.SetFollowTarget(actor);
+			mCast.push_back(actor);
+			mPlayer = actor;
+
+			AnimGraph* hat_pack = NULL;
+			for (int j = 0; j < (int)mAnimData.size(); j++)
+			{
+				if (!strcmp("sword", mAnim_names[j]))
+				{
+					hat_pack = new AnimGraph(mAnimGraphs.at(j));
+				}
+			}
+			actor->SetSword(actor->AttachHat(new sword(hat_pack, actor, &mAHM, &mSpatMon, &mPrtLib, &mSoundLib)));
+		}
+		else if (!strcmp(type, "test_blocker"))
+		{
+			Test_Blocker* actor = new Test_Blocker(actor_pack, PosRect, DrawRect, &mAHM, &mSpatMon, &mPrtLib, &mSoundLib);
+			ref->act = actor;
+			mSpatMon.LogActor(*actor);
+			mCast.push_back(actor);
+		}
+		else if (!strcmp(type, "gate"))
+		{
+			int dir = ConvertStringToSymbol(cJSON_GetObjectItem(act, "dir")->valuestring);
+			Gate* actor = new Gate(actor_pack, PosRect, DrawRect, &mAHM, &mSpatMon, &mPrtLib, &mSoundLib, dir);
+			//ref->act = actor; Gate ref refers to the paired winch because its more useful
+			mSpatMon.LogActor(*actor);
+			mCast.push_back(actor);
+			actor_pack->mFeed.Subscribe(actor);
+
+			AnimGraph* winch_pack = NULL;
+			for (int j = 0; j < (int)mAnimData.size(); j++)
+			{
+				if (!strcmp("winch", mAnim_names[j]))
+				{
+					winch_pack = new AnimGraph(mAnimGraphs.at(j));
+				}
+			}
+			PosRect.h = winch_pack->GetAnimPack()->GetAnimData()->GetCol_h();
+			PosRect.w = winch_pack->GetAnimPack()->GetAnimData()->GetCol_w();
+			PosRect.y -= 29;
+			if (dir == LEFT)
+			{
+				PosRect.x += 7;
+			}
+			else //dir == right
+			{
+				PosRect.x -= (21);
+			}
+
+			DrawRect.x = winch_pack->GetAnimPack()->GetAnimData()->GetOff_x();
+			DrawRect.y = winch_pack->GetAnimPack()->GetAnimData()->GetOff_y();
+			DrawRect.h = winch_pack->GetH();
+			DrawRect.w = winch_pack->GetW();
+			Winch* actor2 = new Winch(winch_pack, PosRect, DrawRect, &mAHM, &mSpatMon, &mPrtLib, &mSoundLib, actor, dir);
+			ref->act = actor2;
+			actor2->mFeed.Subscribe(actor);
+			mSpatMon.LogActor(*actor2);
+			mCast.push_back(actor2);
+		}
+		else if (!strcmp(type, "gateman"))
+		{
+			Gateman* actor = new Gateman(actor_pack, PosRect, DrawRect, &mAHM, &mSpatMon, &mPrtLib, &mSoundLib, cJSON_GetObjectItem(act, "lines")->valuestring, FindRef(ActorRefs, "gate0")->GetHandle());
+			ref->act = actor;
+			mSpatMon.LogActor(*actor);
+			mCast.push_back(actor);
+		}
+		else if (!strcmp(type, "talker"))
+		{
+			Talker* actor = new Talker(actor_pack, PosRect, DrawRect, &mAHM, &mSpatMon, &mPrtLib, &mSoundLib, cJSON_GetObjectItem(act, "lines")->valuestring);
+			ref->act = actor;
+			mSpatMon.LogActor(*actor);
+			mCast.push_back(actor);
+		}
+		else if (!strcmp(type, "door"))
+		{
+			int x_off = cJSON_GetObjectItem(act, "x_off")->valueint;
+			int y_off = cJSON_GetObjectItem(act, "y_off")->valueint;
+			Door* actor = new Door(actor_pack, PosRect, DrawRect, &mAHM, &mSpatMon, &mPrtLib, &mSoundLib, x_off, y_off);
+			ref->act = actor;
+			PosRect.x = cJSON_GetObjectItem(act, "x2")->valueint;
+			PosRect.y = cJSON_GetObjectItem(act, "y2")->valueint;
+			Door* actor2 = new Door(actor_pack, PosRect, DrawRect, &mAHM, &mSpatMon, &mPrtLib, &mSoundLib, x_off, y_off);
+			actor->SetTeleDest(actor2->GetTelePos());
+			actor2->SetTeleDest(actor->GetTelePos());
+			SDL_Rect* r = new SDL_Rect;
+			r->h = 0;
+			r->w = 0;
+			r->x = 100;
+			r->y = 100;
+			//actor->SetTeleDest(r);
+			mSpatMon.LogActor(*actor);
+			mSpatMon.LogActor(*actor2);
+			mCast.push_back(actor);
+			mCast.push_back(actor2);
+		}
+		else if (!strcmp(type, "pursuer"))
+		{
+			Pursuer* actor = new Pursuer(mColMap, actor_pack, PosRect, DrawRect, &mAHM, &mSpatMon, &mPrtLib, &mSoundLib);
+			ref->act = actor;
+			mSpatMon.LogActor(*actor);
+			mCast.push_back(actor);
+		}
+		else if (!strcmp(type, "wanderer"))
+		{
+			Wanderer* actor = new Wanderer(mColMap, actor_pack, PosRect, DrawRect, &mAHM, &mSpatMon, &mPrtLib, &mSoundLib);
+			ref->act = actor;
+			mSpatMon.LogActor(*actor);
+			mCast.push_back(actor);
+		}
+		else if (!strcmp(type, "rabbit"))
+		{
+			Rabbit* actor = new Rabbit(mColMap, actor_pack, PosRect, DrawRect, &mAHM, &mSpatMon, &mPrtLib, &mSoundLib);
+			ref->act = actor;
+			mSpatMon.LogActor(*actor);
+			mCast.push_back(actor);
+		}
+		else
+		{
+			gCons->ConsPrintf("Failed to load actor: %s is an unrecognized actor type\n", type);
+		}
+		ActorRefs.push_back(ref);
+	}
+	
+	return true;
+}
+
+bool Level::LoadParticles(cJSON* level)
+{
+	cJSON* particles = cJSON_GetObjectItem(level, "particles");
+	for (int i = 0; i < cJSON_GetArraySize(particles); i++)
+	{
+		cJSON* prt = cJSON_GetArrayItem(particles, i);
+		
+		char* anim_pack = cJSON_GetObjectItem(prt, "anim_pack")->valuestring;
+		//gCons->ConsPrintf("sought set name: %s\n", anim_pack);
+
+		//AnimDataPack* particle_anims = NULL;
+		AnimGraph* particle_anims = NULL;
+		for (int j = 0; j < (int)mAnimData.size(); j++)
+		{
+			//gCons->ConsPrintf("stored set name: %s\n", anim_names[j]);
+			if (!strcmp(anim_pack, mAnim_names[j]))
+			{
+				particle_anims = new AnimGraph(mAnimGraphs.at(j));
+			}
+		}
+#ifdef DEBUG
+		assert(particle_anims != NULL);
+#endif
+		int prth = particle_anims->GetH();
+		int prtw = particle_anims->GetW();
+		
+		ParticleData* pd = new ParticleData;
+		pd->AnimData = particle_anims;
+		pd->Height = prth;
+		pd->Width = prtw;
+		pd->spat = &mSpatMon;
+		
+		mPrtLib.LogParticleData(pd, anim_pack);
+		return true;
+	}
+	return false;
+}
+
+bool Level::LoadSounds(cJSON* level)
+{
+	cJSON* sounds = cJSON_GetObjectItem(level, "sounds");
+
+	for (int i = 0; i < cJSON_GetArraySize(sounds); i++)
+	{
+		cJSON* sound = cJSON_GetArrayItem(sounds, i);
+		char* fname = cJSON_GetObjectItem(sound, "filename")->valuestring;
+		char* name  = cJSON_GetObjectItem(sound, "name"    )->valuestring;
+		int vol     = cJSON_GetObjectItem(sound, "vol"     )->valueint;
+
+		Mix_Chunk* snd = new Mix_Chunk;
+		snd = LoadSound(fname);
+		Mix_VolumeChunk(snd, vol);
+
+		mSoundLib.LogSoundData(snd, name);
+	}
+
+	cJSON* sound_regions = cJSON_GetObjectItem(level, "sound_regions");
+
+	for (int i = 0; i < cJSON_GetArraySize(sound_regions); i++)
+	{
+		cJSON* region = cJSON_GetArrayItem(sound_regions, i);
+		SDL_Rect reg_rect;
+		reg_rect.x = cJSON_GetObjectItem(region, "x")->valueint;
+		reg_rect.y = cJSON_GetObjectItem(region, "y")->valueint;
+		reg_rect.h = cJSON_GetObjectItem(region, "h")->valueint;
+		reg_rect.w = cJSON_GetObjectItem(region, "w")->valueint;
+
+		RegionSound* rs = mSoundLib.SpawnRegionSound(reg_rect);
+
+		cJSON* tracks = cJSON_GetObjectItem(region, "tracks");
+		for (int j = 0; j < cJSON_GetArraySize(tracks); j++)
+		{
+			char* track = cJSON_GetArrayItem(tracks, j)->valuestring;
+			rs->LogTrack(mSoundLib.GetSoundData(track));
+		}
+	}
+
+	return false;
+}
+
+bool Level::LoadHud(cJSON* level)
+{
+	cJSON* texs = cJSON_GetObjectItem(level, "hud_textures");
+
+	//Load LifeMeter Widget
+	char* life_base = cJSON_GetObjectItem(texs, "life_base")->valuestring;
+	char* life_bar = cJSON_GetObjectItem(texs, "life_bar" )->valuestring;
+
+	SDL_Rect LifePos;
+	LifePos.h = 15;
+	LifePos.w = 250;
+	LifePos.x = 25;
+	LifePos.y = 25;
+	mHUD.LogWidget( new LifeMeter(mPlayer, LifePos, mRen, life_base, life_bar) );
+	//
+
+	//Load Fader widget
+	char* black = cJSON_GetObjectItem(texs, "fader")->valuestring;
+
+	Fader* f = new Fader(mRen, black);
+	mPlayer->mFeed.Subscribe(f);
+	mHUD.LogWidget(f);
+	//
+
+	//Load Dialogue Widget
+	char* text_box = cJSON_GetObjectItem(texs, "text_box")->valuestring;
+
+	SDL_Rect DialoguePos;
+	DialoguePos.h = 0;
+	DialoguePos.w = 0;
+	DialoguePos.x = 300;
+	DialoguePos.y = 200;
+
+	SDL_Color fg = {0,0,0};
+
+	Dialogue* d = new Dialogue(DialoguePos, mRen, "Tapestry.ttf", text_box, fg, mPlayer);
+	mPlayer->mFeed.Subscribe(d);
+
+	mHUD.LogWidget(d);
+	//
+
+	return true;
+}
+
+bool Level::Load(const char* filename)
+{
+	cJSON* root = LoadJSON(filename);
+	//PrintJSON(root);
+	cJSON* level = cJSON_GetObjectItem(root, "level");
+
+	LoadWorld(level);
+
+	LoadCamera(level);
+
+	gDiagDraw = new DiagnosticDraw(mRen, mCam);
+
+	LoadAnimations(level);
+
+	LoadActors(level);
+
+	LoadParticles(level);
+
+	LoadSounds(level);
+
+	LoadHud(level);
+
+	int cells[9];
+
+	mSpatMon.GetAdjacentCells(36, cells);
+
+	return true;
+}
+
+bool Level::Update()
+{
+	///Update Actors
+	for (int i = 0; i < (int)(mCast.size()); i++)
+	{
+		mCast.at(i)->ActorUpdate();
+	}
+	///Update Particles
+	for (int i = 0; i < (int)(mPrtLib.GetParticles()->size()); i++)
+	{
+		mPrtLib.GetParticles()->at(i)->ActorUpdate();
+	}
+
+	///Draw HUD
+	mHUD.UpdateWidgets();
+
+	mCam.ActorFollow(mRen, 150, 75);
+
+	///Draw Backgrounds
+	for (int i = 0; i < (int)mBack.size(); i++)
+	{
+		DrawParallax(mRen, mBack.at(i), mCam, mParallax_back.at(i), mHeight, mWidth);
+	}
+	///Draw Foregrounds
+	for (int i = 0; i < (int)mFore.size(); i++)
+	{
+		SDL_RenderCopy(mRen, mFore.at(i), mCam.GetCamView(), NULL);
+	}
+
+	///Draw Actors
+	for (int i = 0; i < (int)mCast.size(); i++)
+	{
+		DrawActor(mRen, *mCast.at(i), mCam);
+	}
+
+	///Draw Particles
+	for (int i = 0; i < (int)(mPrtLib.GetParticles()->size()); i++)
+	{
+		DrawActor(mRen, *mPrtLib.GetParticles()->at(i), mCam);
+	}
+
+	///Draw overlays
+	for (int l = 0; l < (int)mOver.size(); l++)
+	{
+		DrawParallax(mRen, mOver.at(l), mCam, mParallax_over.at(l), mHeight, mWidth);
+	}
+
+	mHUD.DrawWidgets();
+
+	///Play Sounds
+	mSoundLib.UpdateRegionSounds(mPlayer->GetPosition());
+	mSoundLib.UpdatePointSounds(mCam.GetCenterX(), mCam.GetCenterY());
+	
+	//gCons->ConsPrintf("%d channels are playing\n", Mix_Playing(-1));
+
+	///Draw Diagnositic rectangles
+	gDiagDraw->Update();
+	
+	return true;
+}
+
+bool Level::EventProcess(Event eve)
+{
+	return true;
+}

@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{7BB3F3F9-5600-4309-A1DA-D14BA7B40E91}</ProjectGuid>
+    <RootNamespace>TapestryEngine</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>C:\SDL2_ttf-2.0.12\include;C:\Users\baptistac1\Documents\Visual Studio 2015\Projects\SDL2-2.0.4\include;C:\SDL2_mixer-devel-2.0.1-VC\SDL2_mixer-2.0.1\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\SDL2_mixer-devel-2.0.1-VC\SDL2_mixer-2.0.1\lib\x86;C:\SDL2_ttf-2.0.12\lib\x64;C:\Users\baptistac1\Documents\Visual Studio 2015\Projects\SDL2-2.0.4\VisualC\Win32\Release;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>C:\SDL2_ttf-2.0.12\include;C:\SDL2-2.0.3\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\SDL2_ttf-2.0.12\lib\x64;C:\SDL2-2.0.3\lib\x64;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Users\baptistac1\Documents\Visual Studio 2015\Projects\SDL2-2.0.4\include;C:\SDL2_ttf-2.0.12\include;C:\SDL2_mixer-devel-2.0.1-VC\SDL2_mixer-2.0.1\include;C:\glm;C:\VulkanSDK\1.1.73.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\VulkanSDK\1.1.73.0\Lib32;C:\SDL2_mixer-devel-2.0.1-VC\SDL2_mixer-2.0.1\lib\x86;C:\SDL2_ttf-2.0.12\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2main.lib;SDL2.lib;SDL2_mixer.lib;SDL2test.lib;SDL2_ttf.lib;vulkan-1.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\SDL2-2.0.3\include;C:\SDL2_mixer-devel-2.0.1-VC\SDL2_mixer-2.0.1\include;C:\SDL2_ttf-2.0.12\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>C:\SDL2-2.0.3\lib\x86;C:\SDL2_mixer-devel-2.0.1-VC\SDL2_mixer-2.0.1\lib\x86;C:\SDL2_ttf-2.0.12\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2main.lib;SDL2.lib;SDL2test.lib;SDL2_ttf.lib;SDL2_mixer.lib;legacy_stdio_definitions.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Actor.cpp" />
+    <ClCompile Include="ActorCollision.cpp" />
+    <ClCompile Include="ActorHandle.cpp" />
+    <ClCompile Include="Animation.cpp" />
+    <ClCompile Include="AnimationGraph.cpp" />
+    <ClCompile Include="BinaryTree.cpp" />
+    <ClCompile Include="bones.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="cJSON.cpp" />
+    <ClCompile Include="Console.cpp" />
+    <ClCompile Include="Context.cpp" />
+    <ClCompile Include="DiagnosticDraw.cpp" />
+    <ClCompile Include="Dialogue.cpp" />
+    <ClCompile Include="Emitter.cpp" />
+    <ClCompile Include="Event.cpp" />
+    <ClCompile Include="HUD.cpp" />
+    <ClCompile Include="Input.cpp" />
+    <ClCompile Include="Layer.cpp" />
+    <ClCompile Include="Level.cpp" />
+    <ClCompile Include="Loading.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Mapper.cpp" />
+    <ClCompile Include="MiscDraw.cpp" />
+    <ClCompile Include="Particle.cpp" />
+    <ClCompile Include="Physics.cpp" />
+    <ClCompile Include="Sequence.cpp" />
+    <ClCompile Include="sound.cpp" />
+    <ClCompile Include="symbol.cpp" />
+    <ClCompile Include="Terrain.cpp" />
+    <ClCompile Include="Utils.cpp">
+      <RuntimeLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Actor.h" />
+    <ClInclude Include="ActorCollision.h" />
+    <ClInclude Include="ActorHandle.h" />
+    <ClInclude Include="Animation.h" />
+    <ClInclude Include="AnimationGraph.h" />
+    <ClInclude Include="BinaryTree.h" />
+    <ClInclude Include="bones.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="cJSON.h" />
+    <ClInclude Include="Console.h" />
+    <ClInclude Include="Context.h" />
+    <ClInclude Include="DiagnosticDraw.h" />
+    <ClInclude Include="Dialogue.h" />
+    <ClInclude Include="Emitter.h" />
+    <ClInclude Include="Event.h" />
+    <ClInclude Include="HUD.h" />
+    <ClInclude Include="Input.h" />
+    <ClInclude Include="Layer.h" />
+    <ClInclude Include="Level.h" />
+    <ClInclude Include="Loading.h" />
+    <ClInclude Include="Mapper.h" />
+    <ClInclude Include="MiscDraw.h" />
+    <ClInclude Include="Particle.h" />
+    <ClInclude Include="Physics.h" />
+    <ClInclude Include="Sequence.h" />
+    <ClInclude Include="sound.h" />
+    <ClInclude Include="symbol.h" />
+    <ClInclude Include="Terrain.h" />
+    <ClInclude Include="Utils.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

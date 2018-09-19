@@ -1,0 +1,171 @@
+#include "Particle.h"
+#include "Emitter.h"
+
+//Manager Functions
+bool ParticleManager::SpawnParticle(char* type, char* name, int x, int y, ParticleTypeData ptdata)
+{
+	ParticleData* pd = GetParticleData(name);
+	
+	SDL_Rect pos;
+	pos.h = pd->Height;
+	pos.w = pd->Width;
+	pos.x = x;
+	pos.y = y;
+
+	if (!strcmp(type, "P_static"))
+	{
+		Particle* prt = new P_static(pd->AnimData, pos, int(mParticles.size()), NULL, pd->spat);
+		mParticles.push_back(prt);
+		mParticles.back()->mFeed.Subscribe(this);
+	}
+	else if (!strcmp(type, "P_drift"))
+	{
+		Particle* prt = new P_drift(pd->AnimData, pos, int(mParticles.size()), NULL, pd->spat, ptdata.drift);
+		mParticles.push_back(prt);
+		mParticles.back()->mFeed.Subscribe(this);
+	}
+	else
+	{
+		gCons->ConsPrintf("Unrecognized particle type\n");
+	}
+
+	return true;
+}
+
+bool ParticleManager::ClearParticle(Particle* prt)
+{
+	mParticles.erase(mParticles.begin() + prt->GetID());
+	for (int i = 0; i < (int)(mParticles.size()); i++)
+	{
+		mParticles.at(i)->setID(i);
+	}
+
+	return false;
+}
+
+bool ParticleManager::EventProcess(Event eve)
+{
+	switch (*eve.GetEventType())
+	{
+	case EMIT_PARTICLE:
+		{
+			Emitter* emit = (Emitter*)eve.GetEventData()->p;
+			SpawnParticle(emit->GetType(), emit->GetName(), emit->GetX(), emit->GetY(), emit->GetData());
+			return true;
+			break;
+		}
+	case CREATE_PARTICLE:
+		SpawnParticle(eve.GetEventData()->psd.type, eve.GetEventData()->psd.name, eve.GetEventData()->psd.x, eve.GetEventData()->psd.y);
+		return true;
+		break;
+	case DEATH:
+		ClearParticle((Particle*)eve.GetEventData()->p);
+		particlesKilled += 1;
+		//gCons->ConsPrintf("Particles killed: %i\n", particlesKilled);
+		return true;
+		break;
+	default:
+		gCons->ConsPrintf("Particle Manager Received Unrecognized Event\n");
+		return false;
+		break;
+	}
+}
+
+//Particle Functions
+Particle::Particle(AnimGraph* AnimData, SDL_Rect Pos, int ID, ActorHandleManager* AHM, EventReceiver* spat) : Mobile(AnimData, Pos, Pos, AHM, spat, NULL, NULL) //Could enable particles to play sounds by replacing second null; worth considering
+{
+	mAnimGraph->GetAnimPack()->GetAnimation(PARTICLE)->mFeed.Subscribe(this);
+	mDrawPos.x = 0;
+	mDrawPos.y = 0;
+	mState = ALIVE;
+	mDir = 0;
+	mID = ID;
+}
+
+//P_Static
+bool P_static::EventProcess(Event eve)
+{
+	switch (*eve.GetEventType())
+	{
+	case ANIM_COMPLETE:
+		mState = DEAD;
+		return true;
+		break;
+	default:
+		gCons->ConsPrintf("Particle Received Unrecognized Event\n");
+		return false;
+		break;
+	}
+}
+
+bool P_static::UpdateAnimation()
+{
+	return false;
+}
+
+bool P_static::ActorUpdate()
+{
+	switch (mState)
+	{
+	case ALIVE:
+		mFrame = mAnimGraph->PlayOnce(PARTICLE);
+		break;
+	case DEAD:
+		mFeed.EventProcess(Event(DEATH, this));
+		break;
+	default:
+		gCons->ConsPrintf("Particle in invalid state\n");
+		break;
+	}
+	return false;
+}
+//
+
+//P_drift
+P_drift::P_drift(AnimGraph* AnimData, SDL_Rect Pos, int ID, ActorHandleManager* AHM, EventReceiver* spat, drift_data data) : Particle(AnimData, Pos, ID, AHM, spat), mData(data)
+{
+}
+
+bool P_drift::Drift()
+{
+	return true;
+}
+
+bool P_drift::EventProcess(Event eve)
+{
+	switch (*eve.GetEventType())
+	{
+	case ANIM_COMPLETE:
+		mState = DEAD;
+		return true;
+		break;
+	default:
+		gCons->ConsPrintf("Particle Received Unrecognized Event\n");
+		return false;
+		break;
+	}
+}
+
+bool P_drift::UpdateAnimation()
+{
+	return false;
+}
+
+bool P_drift::ActorUpdate()
+{
+	switch (mState)
+	{
+	case ALIVE:
+		mFrame = mAnimGraph->PlayOnce(PARTICLE);
+		Drift();
+		break;
+	case DEAD:
+		mFeed.EventProcess(Event(DEATH, this));
+		break;
+	default:
+		gCons->ConsPrintf("Particle in invalid state\n");
+		break;
+	}
+	return false;
+}
+//

@@ -1,0 +1,33 @@
+#include "Context.h"
+
+bool ContextManager::LogContext(Context* con, char* name)
+{
+	mContexts.push_back(con);
+	mNames.push_back(name);
+	return false;
+}
+
+bool ContextManager::LoadContext(char* ContextName)
+{
+	for (int i = 0; i < (int)mNames.size(); i++)
+	{
+		if (!strcmp(ContextName, mNames.at(i)))
+		{
+			mContexts.at(i)->Load(mGameDataPath);
+			mActiveContext = mContexts.at(i);
+			return true;
+		}
+	}
+	gCons->ConsPrintf("Unable to load context; No context matching name %s was found\n", ContextName);
+	return false;
+}
+
+bool ContextManager::ContextUpdate()
+{
+	return mActiveContext->Update();
+}
+
+bool ContextManager::EventProcess(Event eve)
+{
+	return false;
+}

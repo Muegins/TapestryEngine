@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>console.cpp</FILENAME>
+      <LINE>51</LINE>
+      <COLUMN>8</COLUMN>
+    </SFA>
+    <DEFECTCODE>6306</DEFECTCODE>
+    <DESCRIPTION>Incorrect call to 'sprintf': consider using 'vsprintf' which accepts a va_list as an argument.</DESCRIPTION>
+    <FUNCTION>ConsoleStringManager::ConsolePrintf</FUNCTION>
+    <DECORATED>?ConsolePrintf@ConsoleStringManager@@QAAXPADZZ</DECORATED>
+    <FUNCLINE>45</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

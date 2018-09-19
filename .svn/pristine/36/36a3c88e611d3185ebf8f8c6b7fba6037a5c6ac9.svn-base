@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>animation.h</FILENAME>
+      <LINE>92</LINE>
+      <COLUMN>20</COLUMN>
+    </SFA>
+    <DEFECTCODE>6282</DEFECTCODE>
+    <DESCRIPTION>Incorrect operator:  assignment of constant in Boolean context. Consider using '==' instead.</DESCRIPTION>
+    <FUNCTION>animation::Play</FUNCTION>
+    <DECORATED>?Play@animation@@QAE_NH@Z</DECORATED>
+    <FUNCLINE>89</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>animation.h</FILENAME>
+      <LINE>98</LINE>
+      <COLUMN>20</COLUMN>
+    </SFA>
+    <DEFECTCODE>6282</DEFECTCODE>
+    <DESCRIPTION>Incorrect operator:  assignment of constant in Boolean context. Consider using '==' instead.</DESCRIPTION>
+    <FUNCTION>animation::Stop</FUNCTION>
+    <DECORATED>?Stop@animation@@QAE_NXZ</DECORATED>
+    <FUNCLINE>95</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>utils.cpp</FILENAME>
+      <LINE>45</LINE>
+      <COLUMN>16</COLUMN>
+    </SFA>
+    <DEFECTCODE>6011</DEFECTCODE>
+    <DESCRIPTION>Dereferencing NULL pointer 'surface'. </DESCRIPTION>
+    <FUNCTION>LoadSurfaceBMP</FUNCTION>
+    <DECORATED>?LoadSurfaceBMP@@YAPAUSDL_Surface@@PBD@Z</DECORATED>
+    <FUNCLINE>26</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>29</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>36</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>37</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>39</LINE>
+        <COLUMN>12</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>40</LINE>
+        <COLUMN>13</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'surface' may be NULL (Enter this branch)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>42</LINE>
+        <COLUMN>19</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>45</LINE>
+        <COLUMN>16</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'surface' is an In/Out argument to 'SDL_SetColorKey' (declared at c:\users\baptistac1\documents\visual studio 2015\projects\sdl2-2.0.4\include\sdl_surface.h:224)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>45</LINE>
+        <COLUMN>16</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'surface' is dereferenced, but may still be NULL</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>utils.cpp</FILENAME>
+      <LINE>92</LINE>
+      <COLUMN>8</COLUMN>
+    </SFA>
+    <DEFECTCODE>6387</DEFECTCODE>
+    <DESCRIPTION>'filecontent' could be '0':  this does not adhere to the specification for the function 'fread'. </DESCRIPTION>
+    <FUNCTION>LoadJSON</FUNCTION>
+    <DECORATED>?LoadJSON@@YAPAUcJSON@@PBD@Z</DECORATED>
+    <FUNCLINE>70</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>73</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>80</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>81</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>82</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>84</LINE>
+        <COLUMN>13</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>85</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>87</LINE>
+        <COLUMN>5</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'filecontent' may be NULL</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>89</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>90</LINE>
+        <COLUMN>4</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>92</LINE>
+        <COLUMN>8</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'filecontent' is an In/Out argument to 'fread' (declared at c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h:231)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>92</LINE>
+        <COLUMN>8</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'filecontent' should not be NULL, because this is not consistent with the SAL annotation on 'fread'</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>utils.cpp</FILENAME>
+      <LINE>95</LINE>
+      <COLUMN>19</COLUMN>
+    </SFA>
+    <DEFECTCODE>6011</DEFECTCODE>
+    <DESCRIPTION>Dereferencing NULL pointer 'filecontent'. See line 92 for an earlier location where this can occur</DESCRIPTION>
+    <FUNCTION>LoadJSON</FUNCTION>
+    <DECORATED>?LoadJSON@@YAPAUcJSON@@PBD@Z</DECORATED>
+    <FUNCLINE>70</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>73</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>80</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>81</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>82</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>84</LINE>
+        <COLUMN>13</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>85</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>87</LINE>
+        <COLUMN>5</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'filecontent' may be NULL</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>89</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>90</LINE>
+        <COLUMN>4</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>92</LINE>
+        <COLUMN>8</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'filecontent' is an In/Out argument to 'fread' (declared at c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h:231)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>93</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>utils.cpp</FILENAME>
+        <LINE>95</LINE>
+        <COLUMN>19</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'filecontent' is dereferenced, but may still be NULL</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT>
+</DEFECTS>

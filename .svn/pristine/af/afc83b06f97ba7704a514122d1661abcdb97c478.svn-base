@@ -1,0 +1,108 @@
+#include "BinaryTree.h"
+
+bool Node::Insert(int i, void* data)
+{
+	if (mActive == false)
+	{
+		PopulateNode(i, data);
+	}
+	else //mActive == true
+	{
+			 if (i < mItem) { mLeft->Insert(i, data); }
+		else if (mItem < i) { mRight->Insert(i, data); }
+		else// i==mItem this should never happen
+		{
+			//error
+			return false;
+		}
+	}
+	return true;
+}
+
+Node* Node::Search(int i)
+{
+	if (mActive == false)// target value not found
+	{
+		return NULL;
+	}
+		 if (i < mItem) { return mLeft->Search(i); }
+	else if (mItem < i) { return mRight->Search(i); }
+	else// i==mItem
+	{
+		return this;
+	}
+}
+
+bool Node::InsertNode(Node* n)
+{
+	n->mActive = false;
+	if (mActive == false)
+	{
+		mActive = true;
+	
+		mItem  = n->mItem;
+		mData = n->GetData();
+
+		if (n->mLeft->IsActive())  { InsertNodeAtRoot(n->mLeft); }
+		if (n->mRight->IsActive()) { InsertNodeAtRoot(n->mRight); }
+
+		return true;
+	}
+	else //mActive == true
+	{
+			 if (n->mItem < mItem) { mLeft->InsertNode(n); }
+		else if (mItem < n->mItem) { mRight->InsertNode(n); }
+		else// i==mItem this should never happen
+		{
+			//error
+			return false;
+		}
+		return true;
+	}
+}
+
+bool Node::InsertNodeAtRoot(Node* n)
+{
+	n->mActive = false;
+	if (mParent != NULL)
+	{
+		return mParent->InsertNodeAtRoot(n);
+	}
+	else
+	{
+		bool r = InsertNode(n);
+		//n->Delete();
+		return r;
+	}
+}
+
+void Node::Delete()
+{
+	mActive = false;
+
+	InsertNodeAtRoot(mLeft);
+	InsertNodeAtRoot(mRight);
+}
+
+bool Node::DisableTree()
+{
+	return false;
+}
+
+void Node::PopulateNode(int item, void* data) //Should only be called by inactive nodes
+{
+	if (mActive == false)
+	{
+		mItem = item;
+		mData = data;
+
+		mLeft  = new Node(this);
+		mRight = new Node(this);
+
+		mActive = true;
+	}
+	else
+	{
+		//error
+	}
+}

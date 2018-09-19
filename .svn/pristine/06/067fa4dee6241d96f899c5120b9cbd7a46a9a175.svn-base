@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>animation.h</FILENAME>
+      <LINE>92</LINE>
+      <COLUMN>20</COLUMN>
+    </SFA>
+    <DEFECTCODE>6282</DEFECTCODE>
+    <DESCRIPTION>Incorrect operator:  assignment of constant in Boolean context. Consider using '==' instead.</DESCRIPTION>
+    <FUNCTION>animation::Play</FUNCTION>
+    <DECORATED>?Play@animation@@QAE_NH@Z</DECORATED>
+    <FUNCLINE>89</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>animation.h</FILENAME>
+      <LINE>98</LINE>
+      <COLUMN>20</COLUMN>
+    </SFA>
+    <DEFECTCODE>6282</DEFECTCODE>
+    <DESCRIPTION>Incorrect operator:  assignment of constant in Boolean context. Consider using '==' instead.</DESCRIPTION>
+    <FUNCTION>animation::Stop</FUNCTION>
+    <DECORATED>?Stop@animation@@QAE_NXZ</DECORATED>
+    <FUNCLINE>95</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>actorcollision.cpp</FILENAME>
+      <LINE>91</LINE>
+      <COLUMN>29</COLUMN>
+    </SFA>
+    <DEFECTCODE>6201</DEFECTCODE>
+    <DESCRIPTION>Index '1024' is out of valid index range '0' to '1023' for possibly stack allocated buffer 'this-&gt;mAdjacentActorIDs'.</DESCRIPTION>
+    <FUNCTION>SpatialMonitor::GetAdjacentActors</FUNCTION>
+    <DECORATED>?GetAdjacentActors@SpatialMonitor@@IAE_NH@Z</DECORATED>
+    <FUNCLINE>88</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+      <FILENAME>actorcollision.cpp</FILENAME>
+      <LINE>91</LINE>
+      <COLUMN>31</COLUMN>
+    </SFA>
+    <DEFECTCODE>6386</DEFECTCODE>
+    <DESCRIPTION>Buffer overrun while writing to 'this-&gt;mAdjacentActorIDs':  the writable size is '4096' bytes, but '4100' bytes might be written.</DESCRIPTION>
+    <FUNCTION>SpatialMonitor::GetAdjacentActors</FUNCTION>
+    <DECORATED>?GetAdjacentActors@SpatialMonitor@@IAE_NH@Z</DECORATED>
+    <FUNCLINE>88</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>actorcollision.cpp</FILENAME>
+        <LINE>90</LINE>
+        <COLUMN>21</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\baptistac1\documents\visual studio 2015\projects\tapestryenginedev\tapestryengine\</FILEPATH>
+        <FILENAME>actorcollision.cpp</FILENAME>
+        <LINE>91</LINE>
+        <COLUMN>31</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>Invalid write to 'this-&gt;mAdjacentActorIDs[1024]', (writable range is 0 to 1023)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT>
+</DEFECTS>
