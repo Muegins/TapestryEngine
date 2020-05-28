@@ -1,11 +1,9 @@
 #include "HUD.h"
 
-SDL_Rect CalcElementScreenPosition(Widget* wid, SDL_Rect elementRect)
+void CalcElementScreenPosition(Widget* wid, SDL_Rect elementRect)
 {
 	elementRect.x += wid->GetPos()->x;
 	elementRect.y += wid->GetPos()->y;
-
-	return elementRect;
 };
 
 bool HUD::LogWidget(Widget* wid)
@@ -58,7 +56,8 @@ bool LifeMeter::WidgetUpdate()
 bool LifeMeter::WidgetDraw()
 {
 	SDL_RenderCopy(mren, mBase.img, NULL, &mBase.pos);
-	SDL_RenderCopy(mren, mLifebar.img, NULL, &CalcElementScreenPosition(this, mLifebar.pos) );
+	CalcElementScreenPosition(this, mLifebar.pos);
+	SDL_RenderCopy(mren, mLifebar.img, NULL, &mLifebar.pos);
 	return true;
 }
 //

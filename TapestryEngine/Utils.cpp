@@ -26,13 +26,14 @@ int GetRealTimeMS() //measures in milliseconds
 
 SDL_Surface* LoadSurfaceBMP(const char* filename)
 {
-#ifdef DEBUG
-	char* basepath = "C:\\Users\\baptistac1\\Documents\\Visual Studio 2015\\Projects\\TapestryEngineDev\\TapestryEngine\\imgs\\";
-#endif
+//#ifdef DEBUG
+//	char* basepath = "C:\\Users\\baptistac1\\Documents\\Visual Studio 2015\\Projects\\TapestryEngineDev\\TapestryEngine\\imgs\\";
+//	const char* basepath = "/home/sebastian/projects/TapestryEngine/TapestryEngine/imgs/";
+//#endif
 
-#ifdef RELEASE
-	char* basepath = ".\\imgs\\";
-#endif
+//#ifdef RELEASE
+	const char* basepath = "./TapestryEngine/imgs/";
+//#endif
 
 	char pathbuffer[1024];
 	strcpy(pathbuffer, basepath);
@@ -48,15 +49,16 @@ SDL_Surface* LoadSurfaceBMP(const char* filename)
 	return surface;
 }
 
-TTF_Font* LoadFont(char* filename, int ptsize)
+TTF_Font* LoadFont(const char* filename, int ptsize)
 {
-#ifdef DEBUG
-	char* basepath = "C:\\Users\\baptistac1\\Documents\\Visual Studio 2015\\Projects\\TapestryEngineDev\\TapestryEngine\\fonts\\";
-#endif
+//#ifdef DEBUG
+//	char* basepath = "C:\\Users\\baptistac1\\Documents\\Visual Studio 2015\\Projects\\TapestryEngineDev\\TapestryEngine\\fonts\\";
+//	const char* basepath = "/home/sebastian/projects/TapestryEngine/TapestryEngine/fonts/";
+//#endif
 
-#ifdef RELEASE
-	char* basepath = ".\\fonts\\";
-#endif
+//#ifdef RELEASE
+	const char* basepath = "./TapestryEngine/fonts/";
+//#endif
 
 	char pathbuffer[1024];
 	strcpy(pathbuffer, basepath);
@@ -66,13 +68,6 @@ TTF_Font* LoadFont(char* filename, int ptsize)
 
 	const char* error = TTF_GetError();
 
-//	int msgboxID = MessageBox(
-//		NULL,
-//		(LPCSTR)error,
-//		(LPCSTR)L"Account Details",
-//		MB_ICONWARNING | MB_CANCELTRYCONTINUE | MB_DEFBUTTON2
-//	);
-
 	assert(font != NULL);
 	
 	//gCons->ConsPrintf(fullpath);
@@ -81,13 +76,7 @@ TTF_Font* LoadFont(char* filename, int ptsize)
 }
 cJSON * LoadJSON(const char* filename)
 {
-#ifdef DEBUG
-	char* basepath = "C:\\Users\\baptistac1\\Documents\\Visual Studio 2015\\Projects\\TapestryEngineDev\\TapestryEngine\\json\\";
-#endif
-
-#ifdef RELEASE
-	char* basepath = ".\\json\\";
-#endif
+	const char* basepath = "./TapestryEngine/json/";
 
 	char pathbuffer[1024];
 	strcpy(pathbuffer, basepath);

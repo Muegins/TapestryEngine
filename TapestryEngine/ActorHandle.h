@@ -40,6 +40,7 @@ public:
 	int ReclaimHandle(int id) //I'm not sure if recycling ID's makes sense or how to do it
 	{
 		//mHandleTree.Search(id)->Delete()
+		return 0;
 	}
 
 	Actor* GetActorAddress(int id)
@@ -79,7 +80,7 @@ protected:
 
 	int UpdateNextHandle() // see reclaim handle
 	{
-
+		return 0;
 	}
 
 	int mNextNewID;

@@ -1,6 +1,6 @@
 #include "Dialogue.h"
 
-Dialogue::Dialogue(SDL_Rect pos, SDL_Renderer* ren, char* font, char* text_box, SDL_Color fore, EventReceiver* player) : Widget(ren, pos), mText_Color(fore)
+Dialogue::Dialogue(SDL_Rect pos, SDL_Renderer* ren, const char* font, char* text_box, SDL_Color fore, EventReceiver* player) : Widget(ren, pos), mText_Color(fore)
 {
 	mPlayer = player;
 
@@ -19,7 +19,7 @@ Dialogue::Dialogue(SDL_Rect pos, SDL_Renderer* ren, char* font, char* text_box, 
 	mline2 = 1;
 }
 
-bool Dialogue::TextWrap(int text_pix_max, char* str)
+bool Dialogue::TextWrap(int text_pix_max, const char* str)
 {
 	int text_pix = -1;
 

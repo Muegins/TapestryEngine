@@ -18,28 +18,28 @@
 		{
 			"world_h": 900,
 			"world_w": 4095,
-			"terrain" : "arid_land\\arid land_colmap.bmp",
+			"terrain" : "arid_land/arid land_colmap.bmp",
 			"backgrounds" : 
 			[
-			{"back" : "arid_land\\arid land_back_0.bmp"       , "parallax_factor" : 5, "alpha" : 0  },
-			{"back" : "arid_land\\arid land_back_1.bmp"       , "parallax_factor" : 4, "alpha" : 0  },
-			{"back" : "arid_land\\arid land_back_2.bmp"       , "parallax_factor" : 3, "alpha" : 0  },
-			{"back" : "arid_land\\arid land_back_transp_3.bmp", "parallax_factor" : 2, "alpha" : 75},
-			{"back" : "arid_land\\arid land_back_4.bmp"       , "parallax_factor" : 2, "alpha" : 0  }
+			{"back" : "arid_land/arid land_back_0.bmp"       , "parallax_factor" : 5, "alpha" : 0  },
+			{"back" : "arid_land/arid land_back_1.bmp"       , "parallax_factor" : 4, "alpha" : 0  },
+			{"back" : "arid_land/arid land_back_2.bmp"       , "parallax_factor" : 3, "alpha" : 0  },
+			{"back" : "arid_land/arid land_back_transp_3.bmp", "parallax_factor" : 2, "alpha" : 75},
+			{"back" : "arid_land/arid land_back_4.bmp"       , "parallax_factor" : 2, "alpha" : 0  }
 			],
 			"foregrounds" : 
 			[
-			{"fore" : "arid_land\\arid land_fore_0.bmp", "alpha" : 0},
-			{"fore" : "arid_land\\arid land_fore_1.bmp", "alpha" : 0},
-			{"fore" : "arid_land\\arid land_fore_2.bmp", "alpha" : 0},
-			{"fore" : "arid_land\\arid land_fore_3.bmp", "alpha" : 0},
-			{"fore" : "arid_land\\text.bmp", "alpha" : 0}
+			{"fore" : "arid_land/arid land_fore_0.bmp", "alpha" : 0},
+			{"fore" : "arid_land/arid land_fore_1.bmp", "alpha" : 0},
+			{"fore" : "arid_land/arid land_fore_2.bmp", "alpha" : 0},
+			{"fore" : "arid_land/arid land_fore_3.bmp", "alpha" : 0},
+			{"fore" : "arid_land/text.bmp", "alpha" : 0}
 			],
 			"overlays" : 
 			[
-			{"over" : "arid_land\\arid land_over_transp_0.bmp", "parallax_factor" : 1, "alpha" : 125},
-			{"over" : "arid_land\\arid land_over_transp_1.bmp", "parallax_factor" : 1, "alpha" : 10},
-			{"over" : "arid_land\\arid land_over_transp_2.bmp", "parallax_factor" : 1, "alpha" : 245}
+			{"over" : "arid_land/arid land_over_transp_0.bmp", "parallax_factor" : 1, "alpha" : 125},
+			{"over" : "arid_land/arid land_over_transp_1.bmp", "parallax_factor" : 1, "alpha" : 10},
+			{"over" : "arid_land/arid land_over_transp_2.bmp", "parallax_factor" : 1, "alpha" : 245}
       ]
 		},
 
@@ -144,24 +144,24 @@
 				"col_data"   : {"off_x" : -5, "off_y" : 0, "col_h" : 23, "col_w" : 6},
 				"anim_set":
 				[
-				{"filename" : "player\\player_idle_begin.bmp"             , "frame_count" : 2 , "frame_rate" : 250, "id" : "IDLE_BEGIN"        },
-				{"filename" : "player\\player_idle_begin_drawn.bmp"       , "frame_count" : 2 , "frame_rate" : 250, "id" : "IDLE_BEGIN_DRAWN"  },
-        {"filename" : "player\\player_idle.bmp"                   , "frame_count" : 6 , "frame_rate" : 275, "id" : "IDLE"              },
-				{"filename" : "player\\player_idle_drawn.bmp"             , "frame_count" : 6 , "frame_rate" : 275, "id" : "IDLE_DRAWN"        },
-        {"filename" : "player\\player_jump.bmp"                   , "frame_count" : 1 , "frame_rate" : 100, "id" : "JUMP"              },
-        {"filename" : "player\\player_jump_drawn.bmp"             , "frame_count" : 1 , "frame_rate" : 100, "id" : "JUMP_DRAWN"        },
-				{"filename" : "player\\player_jump_to_fall.bmp"           , "frame_count" : 1 , "frame_rate" : 100, "id" : "JUMP_TO_FALL"      },
-				{"filename" : "player\\player_jump_to_fall_drawn.bmp"     , "frame_count" : 1 , "frame_rate" : 100, "id" : "JUMP_TO_FALL_DRAWN"},
-				{"filename" : "player\\player_fall.bmp"                   , "frame_count" : 5 , "frame_rate" : 75,  "id" : "FALL"              },
-				{"filename" : "player\\player_fall_drawn.bmp"             , "frame_count" : 5 , "frame_rate" : 75,  "id" : "FALL_DRAWN"        },
-				{"filename" : "player\\player_run.bmp"                    , "frame_count" : 15, "frame_rate" : 20 , "id" : "RUN"               },
-				{"filename" : "player\\player_run_drawn.bmp"              , "frame_count" : 15, "frame_rate" : 20 , "id" : "RUN_DRAWN"         },
-				{"filename" : "player\\player_swim.bmp"                   , "frame_count" : 6,  "frame_rate" : 50 , "id" : "SWIM"              },
-				{"filename" : "player\\player_swim_tread.bmp"             , "frame_count" : 6,  "frame_rate" : 80 , "id" : "TREAD"             }
+				{"filename" : "player/player_idle_begin.bmp"             , "frame_count" : 2 , "frame_rate" : 250, "id" : "IDLE_BEGIN"        },
+				{"filename" : "player/player_idle_begin_drawn.bmp"       , "frame_count" : 2 , "frame_rate" : 250, "id" : "IDLE_BEGIN_DRAWN"  },
+				{"filename" : "player/player_idle.bmp"                   , "frame_count" : 6 , "frame_rate" : 275, "id" : "IDLE"              },
+				{"filename" : "player/player_idle_drawn.bmp"             , "frame_count" : 6 , "frame_rate" : 275, "id" : "IDLE_DRAWN"        },
+				{"filename" : "player/player_jump.bmp"                   , "frame_count" : 1 , "frame_rate" : 100, "id" : "JUMP"              },
+				{"filename" : "player/player_jump_drawn.bmp"             , "frame_count" : 1 , "frame_rate" : 100, "id" : "JUMP_DRAWN"        },
+				{"filename" : "player/player_jump_to_fall.bmp"           , "frame_count" : 1 , "frame_rate" : 100, "id" : "JUMP_TO_FALL"      },
+				{"filename" : "player/player_jump_to_fall_drawn.bmp"     , "frame_count" : 1 , "frame_rate" : 100, "id" : "JUMP_TO_FALL_DRAWN"},
+				{"filename" : "player/player_fall.bmp"                   , "frame_count" : 5 , "frame_rate" : 75,  "id" : "FALL"              },
+				{"filename" : "player/player_fall_drawn.bmp"             , "frame_count" : 5 , "frame_rate" : 75,  "id" : "FALL_DRAWN"        },
+				{"filename" : "player/player_run.bmp"                    , "frame_count" : 15, "frame_rate" : 20 , "id" : "RUN"               },
+				{"filename" : "player/player_run_drawn.bmp"              , "frame_count" : 15, "frame_rate" : 20 , "id" : "RUN_DRAWN"         },
+				{"filename" : "player/player_swim.bmp"                   , "frame_count" : 6,  "frame_rate" : 50 , "id" : "SWIM"              },
+				{"filename" : "player/player_swim_tread.bmp"             , "frame_count" : 6,  "frame_rate" : 80 , "id" : "TREAD"             }
         ],
         "special_anims" :
         [
-        {"filename" : "player\\player_attack.bmp"                 , "frame_count" : 12, "frame_rate" : 40 , "id" : "ATTACK"            , "custom_h": 23, "custom_w": 28}				
+        {"filename" : "player/player_attack.bmp"                 , "frame_count" : 12, "frame_rate" : 40 , "id" : "ATTACK"            , "custom_h": 23, "custom_w": 28}				
         ],
         "loop_ids" :
 				[
@@ -241,24 +241,24 @@
 				"col_data"   : {"off_x" : 0, "off_y" : 0, "col_h" : 23, "col_w" : 14},
 				"anim_set":
 				[
-				{"filename" : "player\\sword\\sword_idle_begin.bmp"             , "frame_count" : 2 , "frame_rate" : 250 ,"id" : "IDLE_BEGIN"         },
-				{"filename" : "player\\sword\\sword_idle_begin_drawn.bmp"       , "frame_count" : 1 , "frame_rate" : 250 ,"id" : "IDLE_BEGIN_DRAWN"   },
-        {"filename" : "player\\sword\\sword_idle.bmp"                   , "frame_count" : 6 , "frame_rate" : 275, "id" : "IDLE"               },
-        {"filename" : "player\\sword\\sword_idle_drawn.bmp"             , "frame_count" : 1 , "frame_rate" : 275, "id" : "IDLE_DRAWN"         },
-				{"filename" : "player\\sword\\sword_jump.bmp"                   , "frame_count" : 1 , "frame_rate" : 100, "id" : "JUMP"               },
-				{"filename" : "player\\sword\\sword_jump_drawn.bmp"             , "frame_count" : 1 , "frame_rate" : 100, "id" : "JUMP_DRAWN"         },
-				{"filename" : "player\\sword\\sword_jump_to_fall.bmp"           , "frame_count" : 1 , "frame_rate" : 100, "id" : "JUMP_TO_FALL"       },
-				{"filename" : "player\\sword\\sword_jump_to_fall_drawn.bmp"     , "frame_count" : 1 , "frame_rate" : 100, "id" : "JUMP_TO_FALL_DRAWN" },
-				{"filename" : "player\\sword\\sword_fall.bmp"                   , "frame_count" : 5 , "frame_rate" : 75,  "id" : "FALL"               },
-				{"filename" : "player\\sword\\sword_fall_drawn.bmp"             , "frame_count" : 5 , "frame_rate" : 75,  "id" : "FALL_DRAWN"         },
-				{"filename" : "player\\sword\\sword_run.bmp"                    , "frame_count" : 15, "frame_rate" : 20 , "id" : "RUN"                },
-				{"filename" : "player\\sword\\sword_run_drawn.bmp"              , "frame_count" : 15, "frame_rate" : 20 , "id" : "RUN_DRAWN"          },
-				{"filename" : "player\\sword\\sword_swim.bmp"                   , "frame_count" : 6,  "frame_rate" : 50 , "id" : "SWIM"               },
-				{"filename" : "player\\sword\\sword_swim_tread.bmp"             , "frame_count" : 6,  "frame_rate" : 80 , "id" : "TREAD"              }	
+				{"filename" : "player/sword/sword_idle_begin.bmp"             , "frame_count" : 2 , "frame_rate" : 250 ,"id" : "IDLE_BEGIN"         },
+				{"filename" : "player/sword/sword_idle_begin_drawn.bmp"       , "frame_count" : 1 , "frame_rate" : 250 ,"id" : "IDLE_BEGIN_DRAWN"   },
+        {"filename" : "player/sword/sword_idle.bmp"                   , "frame_count" : 6 , "frame_rate" : 275, "id" : "IDLE"               },
+        {"filename" : "player/sword/sword_idle_drawn.bmp"             , "frame_count" : 1 , "frame_rate" : 275, "id" : "IDLE_DRAWN"         },
+				{"filename" : "player/sword/sword_jump.bmp"                   , "frame_count" : 1 , "frame_rate" : 100, "id" : "JUMP"               },
+				{"filename" : "player/sword/sword_jump_drawn.bmp"             , "frame_count" : 1 , "frame_rate" : 100, "id" : "JUMP_DRAWN"         },
+				{"filename" : "player/sword/sword_jump_to_fall.bmp"           , "frame_count" : 1 , "frame_rate" : 100, "id" : "JUMP_TO_FALL"       },
+				{"filename" : "player/sword/sword_jump_to_fall_drawn.bmp"     , "frame_count" : 1 , "frame_rate" : 100, "id" : "JUMP_TO_FALL_DRAWN" },
+				{"filename" : "player/sword/sword_fall.bmp"                   , "frame_count" : 5 , "frame_rate" : 75,  "id" : "FALL"               },
+				{"filename" : "player/sword/sword_fall_drawn.bmp"             , "frame_count" : 5 , "frame_rate" : 75,  "id" : "FALL_DRAWN"         },
+				{"filename" : "player/sword/sword_run.bmp"                    , "frame_count" : 15, "frame_rate" : 20 , "id" : "RUN"                },
+				{"filename" : "player/sword/sword_run_drawn.bmp"              , "frame_count" : 15, "frame_rate" : 20 , "id" : "RUN_DRAWN"          },
+				{"filename" : "player/sword/sword_swim.bmp"                   , "frame_count" : 6,  "frame_rate" : 50 , "id" : "SWIM"               },
+				{"filename" : "player/sword/sword_swim_tread.bmp"             , "frame_count" : 6,  "frame_rate" : 80 , "id" : "TREAD"              }	
         ],
 				"special_anims" :
         [
-        {"filename" : "player\\sword\\sword_attack.bmp"                 , "frame_count" : 12, "frame_rate" : 40 , "id" : "ATTACK"            , "custom_h": 23, "custom_w": 28}				
+        {"filename" : "player/sword/sword_attack.bmp"                 , "frame_count" : 12, "frame_rate" : 40 , "id" : "ATTACK"            , "custom_h": 23, "custom_w": 28}				
         ],
         "loop_ids" :
 				[
@@ -338,11 +338,11 @@
 				"col_data"   : {"off_x" : 0, "off_y" : -29, "col_h" : 37, "col_w" : 8}, 
 				"anim_set":
 				[
-				{"filename" : "gate\\gate_down.bmp"        , "frame_count" : 1 , "frame_rate" : 100 , "id" : "GATE_DOWN"        },
-				{"filename" : "gate\\gate_up.bmp"          , "frame_count" : 1 , "frame_rate" : 100 , "id" : "GATE_UP"          },
-				{"filename" : "gate\\gate_lower.bmp"       , "frame_count" : 6 , "frame_rate" : 40  , "id" : "GATE_LOWER"       },
-				{"filename" : "gate\\gate_lower_begin.bmp" , "frame_count" : 3 , "frame_rate" : 40  , "id" : "GATE_LOWER_BEGIN" },
-				{"filename" : "gate\\gate_raise.bmp"       , "frame_count" : 38, "frame_rate" : 120 , "id" : "GATE_RAISE"       }
+				{"filename" : "gate/gate_down.bmp"        , "frame_count" : 1 , "frame_rate" : 100 , "id" : "GATE_DOWN"        },
+				{"filename" : "gate/gate_up.bmp"          , "frame_count" : 1 , "frame_rate" : 100 , "id" : "GATE_UP"          },
+				{"filename" : "gate/gate_lower.bmp"       , "frame_count" : 6 , "frame_rate" : 40  , "id" : "GATE_LOWER"       },
+				{"filename" : "gate/gate_lower_begin.bmp" , "frame_count" : 3 , "frame_rate" : 40  , "id" : "GATE_LOWER_BEGIN" },
+				{"filename" : "gate/gate_raise.bmp"       , "frame_count" : 38, "frame_rate" : 120 , "id" : "GATE_RAISE"       }
 				],
 				"special_anims" :
         [			
@@ -379,11 +379,11 @@
 				"col_data"   : {"off_x" : 0, "off_y" : 0, "col_h" : 17, "col_w" : 22}, 
 				"anim_set":
 				[
-				{"filename" : "winch\\winch_down.bmp"        , "frame_count" : 1 , "frame_rate" : 100 , "id" : "GATE_DOWN"        },
-				{"filename" : "winch\\winch_up.bmp"          , "frame_count" : 1 , "frame_rate" : 100 , "id" : "GATE_UP"          },
-				{"filename" : "winch\\winch_lower.bmp"       , "frame_count" : 6 , "frame_rate" : 40  , "id" : "GATE_LOWER"       },
-				{"filename" : "winch\\winch_lower_begin.bmp" , "frame_count" : 4 , "frame_rate" : 120 , "id" : "GATE_LOWER_BEGIN" },
-				{"filename" : "winch\\winch_raise.bmp"       , "frame_count" : 40, "frame_rate" : 120 , "id" : "GATE_RAISE"       }
+				{"filename" : "winch/winch_down.bmp"        , "frame_count" : 1 , "frame_rate" : 100 , "id" : "GATE_DOWN"        },
+				{"filename" : "winch/winch_up.bmp"          , "frame_count" : 1 , "frame_rate" : 100 , "id" : "GATE_UP"          },
+				{"filename" : "winch/winch_lower.bmp"       , "frame_count" : 6 , "frame_rate" : 40  , "id" : "GATE_LOWER"       },
+				{"filename" : "winch/winch_lower_begin.bmp" , "frame_count" : 4 , "frame_rate" : 120 , "id" : "GATE_LOWER_BEGIN" },
+				{"filename" : "winch/winch_raise.bmp"       , "frame_count" : 40, "frame_rate" : 120 , "id" : "GATE_RAISE"       }
 				],
 				"special_anims" :
         [			
@@ -420,10 +420,10 @@
 				"col_data"   : {"off_x" : 0, "off_y" : 0, "col_h" : 26, "col_w" : 14}, 
 				"anim_set":
 				[
-				{"filename" : "NPCs\\gateman\\gateoperator_idle.bmp"        , "frame_count" : 6 , "frame_rate" : 250 , "id" : "GATE_DOWN"        },
-				{"filename" : "NPCs\\gateman\\gateoperator_idle.bmp"        , "frame_count" : 6 , "frame_rate" : 250 , "id" : "GATE_UP"          },
-				{"filename" : "NPCs\\gateman\\gateoperator_lower.bmp"       , "frame_count" : 7 , "frame_rate" : 120  , "id" : "GATE_LOWER"      },
-				{"filename" : "NPCs\\gateman\\gateoperator_raise.bmp"       , "frame_count" : 43, "frame_rate" : 120 , "id" : "GATE_RAISE"       }
+				{"filename" : "NPCs/gateman/gateoperator_idle.bmp"        , "frame_count" : 6 , "frame_rate" : 250 , "id" : "GATE_DOWN"        },
+				{"filename" : "NPCs/gateman/gateoperator_idle.bmp"        , "frame_count" : 6 , "frame_rate" : 250 , "id" : "GATE_UP"          },
+				{"filename" : "NPCs/gateman/gateoperator_lower.bmp"       , "frame_count" : 7 , "frame_rate" : 120  , "id" : "GATE_LOWER"      },
+				{"filename" : "NPCs/gateman/gateoperator_raise.bmp"       , "frame_count" : 43, "frame_rate" : 120 , "id" : "GATE_RAISE"       }
 				],
 				"special_anims" :
         [			
@@ -541,25 +541,25 @@
         },
         "anim_set": [
           {
-            "filename": "rabbits\\brabbit_hop.bmp",
+            "filename": "rabbits/brabbit_hop.bmp",
             "frame_count": 1,
             "frame_rate": 100,
             "id": "RUN"
           },
           {
-            "filename": "rabbits\\brabbit_idle_eat.bmp",
+            "filename": "rabbits/brabbit_idle_eat.bmp",
             "frame_count": 13,
             "frame_rate": 100,
             "id": "EAT"
           },
           {
-            "filename": "rabbits\\brabbit_idle_look.bmp",
+            "filename": "rabbits/brabbit_idle_look.bmp",
             "frame_count": 8,
             "frame_rate": 100,
             "id": "LOOK"
           },
           {
-            "filename": "rabbits\\brabbit_sleep.bmp",
+            "filename": "rabbits/brabbit_sleep.bmp",
             "frame_count": 1,
             "frame_rate": 100,
             "id": "SLEEP"
@@ -606,13 +606,13 @@
 				"col_data"   : {"off_x" : -4, "off_y" : 0, "col_h" : 16, "col_w" : 15},
 				"anim_set":
 				[
-				{"filename" : "sludge_seal\\sludgeseal_land_idle.bmp"      , "frame_count" : 6  , "frame_rate" : 250  , "id" : "IDLE"         },
-				{"filename" : "sludge_seal\\sludgeseal_crawl.bmp"          , "frame_count" : 8  , "frame_rate" : 30  , "id" : "RUN"           },
-				{"filename" : "sludge_seal\\sludgeseal_swim.bmp"           , "frame_count" : 8  , "frame_rate" : 125  , "id" : "SWIM"         },
-				{"filename" : "sludge_seal\\sludgeseal_swim_begin.bmp"     , "frame_count" : 7  , "frame_rate" : 10  , "id" : "SWIM_BEGIN"    },
-				{"filename" : "sludge_seal\\sludgeseal_water_idle.bmp"     , "frame_count" : 16 , "frame_rate" : 350  , "id" : "TREAD"        },
-				{"filename" : "sludge_seal\\sludgeseal_die.bmp"            , "frame_count" : 6  , "frame_rate" : 350  , "id" : "DIE"          },
-				{"filename" : "sludge_seal\\sludgeseal_dead.bmp"           , "frame_count" : 1  , "frame_rate" : 10   , "id" : "DEAD"         }
+				{"filename" : "sludge_seal/sludgeseal_land_idle.bmp"      , "frame_count" : 6  , "frame_rate" : 250  , "id" : "IDLE"         },
+				{"filename" : "sludge_seal/sludgeseal_crawl.bmp"          , "frame_count" : 8  , "frame_rate" : 30  , "id" : "RUN"           },
+				{"filename" : "sludge_seal/sludgeseal_swim.bmp"           , "frame_count" : 8  , "frame_rate" : 125  , "id" : "SWIM"         },
+				{"filename" : "sludge_seal/sludgeseal_swim_begin.bmp"     , "frame_count" : 7  , "frame_rate" : 10  , "id" : "SWIM_BEGIN"    },
+				{"filename" : "sludge_seal/sludgeseal_water_idle.bmp"     , "frame_count" : 16 , "frame_rate" : 350  , "id" : "TREAD"        },
+				{"filename" : "sludge_seal/sludgeseal_die.bmp"            , "frame_count" : 6  , "frame_rate" : 350  , "id" : "DIE"          },
+				{"filename" : "sludge_seal/sludgeseal_dead.bmp"           , "frame_count" : 1  , "frame_rate" : 10   , "id" : "DEAD"         }
         ],
 				"special_anims" :
         [			
@@ -663,9 +663,9 @@
 				"col_data"   : {"off_x" : -32, "off_y" : 0, "col_h" : 26, "col_w" : 32},
 				"anim_set":
 				[
-				{"filename" : "loyal_bug\\loyalbug_idle_begin.bmp" , "frame_count" : 5 ,  "frame_rate" : 75 , "id" : "IDLE_BEGIN"},
-				{"filename" : "loyal_bug\\loyalbug_idle.bmp"       , "frame_count" : 11 , "frame_rate" : 120, "id" : "IDLE"      },
-				{"filename" : "loyal_bug\\loyalbug_walk.bmp"       , "frame_count" : 23,  "frame_rate" : 20 , "id" : "RUN"       }
+				{"filename" : "loyal_bug/loyalbug_idle_begin.bmp" , "frame_count" : 5 ,  "frame_rate" : 75 , "id" : "IDLE_BEGIN"},
+				{"filename" : "loyal_bug/loyalbug_idle.bmp"       , "frame_count" : 11 , "frame_rate" : 120, "id" : "IDLE"      },
+				{"filename" : "loyal_bug/loyalbug_walk.bmp"       , "frame_count" : 23,  "frame_rate" : 20 , "id" : "RUN"       }
 				],
 				"special_anims" :
         [			
@@ -700,7 +700,7 @@
 				"col_data"   : {"off_x" : 0, "off_y" : 0, "col_h" : 7, "col_w" : 13},
 				"anim_set":
 				[
-				{"filename" : "hostile\\bug_walk.bmp" , "frame_count" : 8 ,  "frame_rate" : 75 , "id" : "RUN"}
+				{"filename" : "hostile/bug_walk.bmp" , "frame_count" : 8 ,  "frame_rate" : 75 , "id" : "RUN"}
 				],
 				"special_anims" :
         [			
@@ -758,7 +758,7 @@
 				"col_data"   : {"off_x" : 0, "off_y" : 0, "col_h" : 22, "col_w" : 11},
 				"anim_set":
 				[
-				{"filename" : "NPCs\\gardenwoman_idle.bmp" , "frame_count" : 5,  "frame_rate" : 300 , "id" : "IDLE"}
+				{"filename" : "NPCs/gardenwoman_idle.bmp" , "frame_count" : 5,  "frame_rate" : 300 , "id" : "IDLE"}
 				],
 				"special_anims" :
         [			
@@ -787,7 +787,7 @@
 				"col_data"   : {"off_x" : 0, "off_y" : 0, "col_h" : 22, "col_w" : 13},
 				"anim_set":
 				[
-				{"filename" : "NPCs\\smokingman_idle.bmp" , "frame_count" : 21,  "frame_rate" : 260 , "id" : "IDLE"}
+				{"filename" : "NPCs/smokingman_idle.bmp" , "frame_count" : 21,  "frame_rate" : 260 , "id" : "IDLE"}
 				],
 				"special_anims" :
         [			
@@ -816,7 +816,7 @@
 				"col_data"   : {"off_x" : 0, "off_y" : 0, "col_h" : 22, "col_w" : 8},
 				"anim_set":
 				[
-				{"filename" : "NPCs\\sitting_man_idle.bmp" , "frame_count" : 11,  "frame_rate" : 260 , "id" : "IDLE"}
+				{"filename" : "NPCs/sitting_man_idle.bmp" , "frame_count" : 11,  "frame_rate" : 260 , "id" : "IDLE"}
 				],
 				"special_anims" :
         [			
@@ -845,7 +845,7 @@
 				"col_data"   : {"off_x" : 0, "off_y" : 0, "col_h" : 25, "col_w" : 8},
 				"anim_set":
 				[
-				{"filename" : "NPCs\\storeowner_idle.bmp" , "frame_count" : 8,  "frame_rate" : 415 , "id" : "IDLE"}
+				{"filename" : "NPCs/storeowner_idle.bmp" , "frame_count" : 8,  "frame_rate" : 415 , "id" : "IDLE"}
 				],
 				"special_anims" :
         [			
@@ -874,7 +874,7 @@
 				"col_data"   : {"off_x" : -5, "off_y" : 0, "col_h" : 23, "col_w" : 6},
 				"anim_set":
 				[
-				{"filename" : "player\\myhatisat.bmp" , "frame_count" : 1,  "frame_rate" : 100 , "id" : "IDLE"}
+				{"filename" : "player/myhatisat.bmp" , "frame_count" : 1,  "frame_rate" : 100 , "id" : "IDLE"}
 				],
 				"special_anims" :
         [			

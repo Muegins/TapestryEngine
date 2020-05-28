@@ -1,13 +1,13 @@
 #include "Context.h"
 
-bool ContextManager::LogContext(Context* con, char* name)
+bool ContextManager::LogContext(Context* con, const char* name)
 {
 	mContexts.push_back(con);
 	mNames.push_back(name);
 	return false;
 }
 
-bool ContextManager::LoadContext(char* ContextName)
+bool ContextManager::LoadContext(const char* ContextName)
 {
 	for (int i = 0; i < (int)mNames.size(); i++)
 	{

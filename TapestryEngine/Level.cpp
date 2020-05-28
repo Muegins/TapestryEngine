@@ -1,6 +1,6 @@
 #include "Level.h"
 
-Actor* FindRef(std::vector<ActorName*> refs, char* name)
+Actor* FindRef(std::vector<ActorName*> refs, const char* name)
 {
 	for (int i = 0; i < (int)refs.size(); i++)
 	{
@@ -247,6 +247,9 @@ bool Level::LoadActors(cJSON* level)
 
 	for (int i = 0; i < cJSON_GetArraySize(actors); i++)
 	{
+		for (int z = 0; z < mCast.size(); z++) {
+			*mCast.at(z);
+		}
 		cJSON* act = cJSON_GetArrayItem(actors, i);
 		
 		char* anim_pack = cJSON_GetObjectItem(act, "anim_pack")->valuestring;
@@ -260,11 +263,9 @@ bool Level::LoadActors(cJSON* level)
 				actor_pack = new AnimGraph(mAnimGraphs.at(j));
 			}
 		}
-#ifdef DEBUG
-		assert(actor_pack != NULL);
-#endif
 
-	
+		assert(actor_pack != NULL);
+
 		SDL_Rect PosRect;
 		PosRect.x = cJSON_GetObjectItem(act, "x")->valueint;
 		PosRect.y = cJSON_GetObjectItem(act, "y")->valueint;
@@ -416,7 +417,7 @@ bool Level::LoadActors(cJSON* level)
 		}
 		ActorRefs.push_back(ref);
 	}
-	
+
 	return true;
 }
 
@@ -575,6 +576,9 @@ bool Level::Load(const char* filename)
 
 bool Level::Update()
 {
+	int f = 0;
+	f++;
+
 	///Update Actors
 	for (int i = 0; i < (int)(mCast.size()); i++)
 	{

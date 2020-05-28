@@ -23,7 +23,7 @@ struct ActorName
 	Actor* act;
 };
 
-Actor* FindRef(std::vector<ActorName*> refs, char* name);
+Actor* FindRef(std::vector<ActorName*> refs, const char* name);
 
 class Level : public Context, public EventReceiver
 {

@@ -104,7 +104,7 @@ public:
 		}
 		return mDrawPos;
 	}
-
+	
 	int GetOpacity()
 	{
 		return mOpacity;

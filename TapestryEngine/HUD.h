@@ -41,7 +41,7 @@ protected:
 
 };
 
-SDL_Rect CalcElementScreenPosition(Widget* wid, SDL_Rect elementRect);
+void CalcElementScreenPosition(Widget* wid, SDL_Rect elementRect);
 
 class LifeMeter : public Widget
 {

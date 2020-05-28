@@ -2,7 +2,7 @@
 #include "Emitter.h"
 
 //Manager Functions
-bool ParticleManager::SpawnParticle(char* type, char* name, int x, int y, ParticleTypeData ptdata)
+bool ParticleManager::SpawnParticle(const char* type, const char* name, int x, int y, ParticleTypeData ptdata)
 {
 	ParticleData* pd = GetParticleData(name);
 	

@@ -45,9 +45,9 @@ class Console
 public:
 	Console() {}
 
-	Console(char* filename, int ptsize, SDL_Color Text, SDL_Color BG);
+	Console(const char* filename, int ptsize, SDL_Color Text, SDL_Color BG);
 
-	void ConsPrintf(char* fmt, ...);
+	void ConsPrintf(const char* fmt, ...);
 
 	void DrawConsole(SDL_Renderer* ren);
 

@@ -252,7 +252,7 @@ public:
 		return true;
 	}
 
-	Mix_Chunk* GetSoundData(char* name)
+	Mix_Chunk* GetSoundData(const char* name)
 	{
 		for (int i = 0; i < (int)mNames.size(); i++)
 		{
@@ -266,7 +266,7 @@ public:
 	
 	
 
-	PointSound* SpawnPointSound(int x, int y, char* name)
+	PointSound* SpawnPointSound(int x, int y, const char* name)
 	{
 		PointSound* ps = new PointSound(x,y,GetSoundData(name), (int)(mEffects.size()) );
 		ps->SetChannel(mChannelManager.AssignChannel());

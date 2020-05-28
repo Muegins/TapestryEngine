@@ -76,7 +76,7 @@ public:
 		return mCurrentFrameNumber;
 	}
 
-	bool SetPlaySpeed(int speed)
+	void SetPlaySpeed(int speed)
 	{
 		mFrameRate = speed;
 	}

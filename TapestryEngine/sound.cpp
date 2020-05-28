@@ -3,13 +3,13 @@
 
 Mix_Music* LoadMusic(char* filename)
 {
-#ifdef DEBUG
-	char* basepath = "C:\\Users\\baptistac1\\Documents\\Visual Studio 2015\\Projects\\TapestryEngineDev\\TapestryEngine\\sounds\\";
-#endif
+//#ifdef DEBUG
+//	const char* basepath = "/home/sebastian/projects/TapestryEngine/TapestryEngine/sounds/";
+//#endif
 
-#ifdef RELEASE
-	char* basepath = ".\\sounds\\";
-#endif
+//#ifdef RELEASE
+	const char* basepath = "./TapestryEngine/sounds/";
+//#endif
 
 	char pathbuffer[1024];
 	strcpy(pathbuffer, basepath);
@@ -25,13 +25,13 @@ Mix_Music* LoadMusic(char* filename)
 
 Mix_Chunk* LoadSound(char* filename)
 {
-#ifdef DEBUG
-	char* basepath = "C:\\Users\\baptistac1\\Documents\\Visual Studio 2015\\Projects\\TapestryEngineDev\\TapestryEngine\\sounds\\";
-#endif
+//#ifdef DEBUG
+//	const char* basepath = "/home/sebastian/projects/TapestryEngine/TapestryEngine/sounds/";
+//#endif
 
-#ifdef RELEASE
-	char* basepath = ".\\sounds\\";
-#endif
+//#ifdef RELEASE
+	const char* basepath = "./TapestryEngine/sounds/";
+//#endif
 
 	char pathbuffer[1024];
 	strcpy(pathbuffer, basepath);

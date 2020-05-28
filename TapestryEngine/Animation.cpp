@@ -119,7 +119,8 @@ animation* AnimPack::ActivateAnimation(int AnimationID, int flags)
 			return &mAnims[i];
 		}
 	}
-	gCons->ConsPrintf("Invalid Animation ID; Could not find Animation\n");
+//	gCons->ConsPrintf("Invalid Animation ID; Could not find Animation\n");
+	printf("Invalid Animation ID; Could not find Animation\n");
 	return NULL;
 
 }

@@ -1,8 +1,8 @@
 #ifndef BINARY_TREE_H
 #define BINARY_TREE_H
 
-#define NULL 0
-
+//#define NULL 0
+#include <cstddef>
 
 class Node
 {

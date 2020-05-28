@@ -40,7 +40,7 @@ SDL_Rect DrawActor(SDL_Renderer* ren, Actor& act, Camera cam)
 
 	Frame* RenderFrame = act.GetFrame();
 
-	if (RenderFrame != NULL)
+	if (RenderFrame != NULL) //TODO:This doesn't actually gaurd the way it should
 	{
 		SDL_RendererFlip flip;
 		flip = (SDL_RendererFlip)act.GetDir();

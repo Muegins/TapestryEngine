@@ -13,13 +13,15 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include <math.h>
-#include <glm/vec4.hpp>
-#include <glm/mat4x4.hpp>
+#include <sys/types.h>
+#include<sys/stat.h>
+//#include <glm/vec4.hpp>
+//#include <glm/mat4x4.hpp>
 
-#include "cJSON.h"
-#include "SDL.h"
-#include "SDL_ttf.h"
-#include "SDL_Mixer.h"
+#include "cjson/cJSON.h"
+#include "SDL2/SDL.h"
+#include "SDL2/SDL_ttf.h"
+#include "SDL2/SDL_mixer.h"
 #include "BinaryTree.h"
 
 //Terrain Defines
@@ -42,8 +44,9 @@
 //
 
 //Time Defines
-#define MS_PER_FRAME 16 //this is normal speed
-//#define MS_PER_FRAME 40 //useful slow speed
+//#define MS_PER_FRAME 16 //60fps this is normal speed
+//#define MS_PER_FRAME 32 //30fps
+#define MS_PER_FRAME 48 //20fps keeps kolbo from huffing and puffing
 #define FRAMES_PER_SECOND (1/MS_PER_FRAME)*1000 //62.5 @16ms
 
 #define CLOCKS_PER_FRAME (CLOCKS_PER_SEC/FRAMES_PER_SECOND)
@@ -170,7 +173,7 @@ int GetRealTimeMS();
 
 SDL_Surface* LoadSurfaceBMP(const char* filename);
 
-TTF_Font* LoadFont(char* file, int ptsize);
+TTF_Font* LoadFont(const char* file, int ptsize);
 
 cJSON * LoadJSON(const char* filename);
 

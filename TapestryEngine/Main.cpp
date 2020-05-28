@@ -14,12 +14,15 @@
 
 #include "BinaryTree.h" //remove later
 
-FILE _iob[] = { *stdin, *stdout, *stderr };
 
-extern "C" FILE * __cdecl __iob_func(void)
-{
-	return _iob;
-}
+//Some hack I needed for visual studio, I don't understand it
+//
+//FILE _iob[] = { *stdin, *stdout, *stderr };
+//
+//extern "C" FILE * __cdecl __iob_func(void)
+//{
+//	return _iob;
+//}
 
 int main(int argc, char *argv[])
 {

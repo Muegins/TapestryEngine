@@ -14,6 +14,8 @@ Actor::Actor(AnimGraph* AnimData, SDL_Rect Pos, SDL_Rect DrawPos, ActorHandleMan
 
 	mState = IDLE;
 
+	mDir = RIGHT;
+
 	mAHM = AHM;
 	//if (AHM != NULL) { mHandle = AHM->EventProcess(Event(ASSIGN_HANDLE, (EventReceiver*)this)); } 
 	if (mAHM != NULL) { mHandle = mAHM->AssignHandle(this); } //Get a unique handle from the AHM and register it with a pointer to yourself
@@ -692,7 +694,7 @@ Player::Player(SDL_Surface* ter, AnimGraph* AnimData, SDL_Rect Pos, SDL_Rect Dra
 	mTouch.w = 18;
 
 	mAttackZone.w = 16;
-	((sword*)(mAHM->GetActorAddress(mHatIndex_Sword)))->ToggleHat(true);
+//	((sword*)(mAHM->GetActorAddress(mHatIndex_Sword)))->ToggleHat(true);
 }
 
 bool Player::EventProcess(Event eve)

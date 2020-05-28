@@ -54,7 +54,7 @@ void ConsoleStringManager::ConsolePrintf(char* fmt, ...)
 	ConsoleLog(msgf);
 }
 
-Console::Console(char* filename, int ptsize, SDL_Color Text, SDL_Color BG)
+Console::Console(const char* filename, int ptsize, SDL_Color Text, SDL_Color BG)
 {
 	mTextRect.w = 0;
 	mTextRect.h = 0;
@@ -72,7 +72,7 @@ Console::Console(char* filename, int ptsize, SDL_Color Text, SDL_Color BG)
 	mBG = BG;
 }
 
-void Console::ConsPrintf(char* fmt, ...)
+void Console::ConsPrintf(const char* fmt, ...)
 {
 	char msgf[256];
 

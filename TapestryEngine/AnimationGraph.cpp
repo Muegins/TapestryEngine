@@ -119,18 +119,14 @@ Frame* AnimGraph::UpdateAnimation()
 		else
 		{
 			mState = *mActorState;
-			return &mCurrentFrame;
 		}
 	}
-	else
+	for (int i = 0; i < (int)mAGD->mLoopsAnimIDs.size(); i++)
 	{
-		for (int i = 0; i < (int)mAGD->mLoopsAnimIDs.size(); i++)
+		if (mAGD->mLoopsAnimIDs.at(i) == mState)
 		{
-			if (mAGD->mLoopsAnimIDs.at(i) == mState)
-			{
-				mCurrentFrame = mAnimPack.ActivateAnimation(mAGD->mLoopsAnimIDs.at(i))->GetCurrentFrame();
-				return &mCurrentFrame;
-			}
+			mCurrentFrame = mAnimPack.ActivateAnimation(mAGD->mLoopsAnimIDs.at(i))->GetCurrentFrame();
+			return &mCurrentFrame;
 		}
 	}
 	return NULL;

@@ -107,7 +107,7 @@ public:
 		return true;
 	}
 
-	ParticleData* GetParticleData(char* name)
+	ParticleData* GetParticleData(const char* name)
 	{
 		for (int i = 0; i < (int)mParticleData.size(); i++)
 		{
@@ -119,7 +119,7 @@ public:
 		return NULL;
 	}
 
-	bool SpawnParticle(char* type, char* name, int x, int y, ParticleTypeData ptdata = NullPTdata() );
+	bool SpawnParticle(const char* type, const char* name, int x, int y, ParticleTypeData ptdata = NullPTdata() );
 
 	bool ClearParticle(Particle* prt);
 

@@ -29,11 +29,11 @@ public:
 
 	ContextManager() {}
 
-	ContextManager(char* GameDataPath) : mGameDataPath(GameDataPath) {}
+	ContextManager(const char* GameDataPath) : mGameDataPath(GameDataPath) {}
 
-	bool LogContext(Context* con, char* name);
+	bool LogContext(Context* con, const char* name);
 
-	bool LoadContext(char* ContextName);
+	bool LoadContext(const char* ContextName);
 
 	bool ContextUpdate();
 
@@ -41,10 +41,10 @@ public:
 
 protected:
 	
-	char* mGameDataPath;
+	const char* mGameDataPath;
 	Context* mActiveContext;
 	std::vector<Context*> mContexts;
-	std::vector<char*>    mNames;
+	std::vector<const char*>    mNames;
 
 };
 

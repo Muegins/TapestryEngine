@@ -78,13 +78,13 @@ struct PointSpawnData
 {
 	int x;
 	int y;
-	char* name;
-	char* type;
+	const char* name;
+	const char* type;
 };
 
 struct DialogueData
 {
-	char* str;
+	const char* str;
 	int talkerID;
 };
 
@@ -106,7 +106,7 @@ union EventData
 	int i;
 	void* p;
 	bool b;
-	char* str;
+	const char* str;
 	SDL_Rect* rect;
 	SensorData sd;
 	SensorResponse sr;
@@ -139,7 +139,7 @@ public:
 		mEvData.p = P;
 	}
 
-	Event(EventType EvType, char* str) : mType(EvType), mReturnAddress(NULL)
+	Event(EventType EvType, const char* str) : mType(EvType), mReturnAddress(NULL)
 	{
 		mEvData.str = str;
 	}
@@ -157,7 +157,7 @@ public:
 		mEvData.sr.id = ID;
 	}
 
-	Event(EventType EvType, char* type, char* name, int x, int y) : mType(EvType), mReturnAddress(NULL)
+	Event(EventType EvType, const char* type, const char* name, int x, int y) : mType(EvType), mReturnAddress(NULL)
 	{
 		mEvData.psd.x = x;
 		mEvData.psd.y = y;
@@ -165,7 +165,7 @@ public:
 		mEvData.psd.type = type;
 	}
 
-	Event(EventType EvType, char* str, int talkID) : mType(EvType), mReturnAddress(NULL)
+	Event(EventType EvType, const char* str, int talkID) : mType(EvType), mReturnAddress(NULL)
 	{
 		mEvData.dd.str = str;
 		mEvData.dd.talkerID = talkID;

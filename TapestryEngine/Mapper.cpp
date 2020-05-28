@@ -221,7 +221,7 @@ SDL_Surface* Mapper::NewMap(int h, int w)
 	if (mMap->format->format != SDL_PIXELFORMAT_INDEX8)
 	{
 		gCons->ConsPrintf("Non-INDEX8 Collision Map Detected\n");
-		return false;
+		return NULL;
 	}
 	Uint8* PixMap = (Uint8*)mMap->pixels;
 
